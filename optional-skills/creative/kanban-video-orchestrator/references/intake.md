@@ -80,10 +80,12 @@ texture inside the final scene.
 
 ### Explainer / educational
 
-- **What concept is being taught?** — One-sentence concept, key takeaway
+- **What concept/source is being taught?** — One-sentence concept, source
+  files/Rules, key takeaway, and any terminology or qualifiers that must be preserved
 - **Audience expertise?** — Beginner / intermediate / expert
 - **Diagram density?** — Heavy math / formulas / code / abstract concepts
-- **Voiceover?** — TTS / recorded / on-screen text only
+- **Voiceover?** — TTS / recorded / on-screen text only; for narrated
+  explainers, final audio drives both subtitle and visual timing
 - **Tool preference?** — `manim-video` (math), `p5js` (generative),
   Remotion (UI motion graphics), `comfyui` (AI-generated visuals),
   `ascii-video` (technical/retro), hybrid
@@ -153,7 +155,8 @@ When the user under-specifies, fill in these defaults rather than asking:
 | Audio codec | AAC 192 kbps |
 | Voice | Provider's mid-range neutral voice unless brand calls for distinctive timbre |
 | Music | Silent (require user to specify if music is wanted) |
-| Captions | On for explainer/tutorial; off for narrative/abstract unless requested |
+| Captions | On for explainer/tutorial; for narrated teaching videos, align from the final voice audio |
+| Synchronization | One master timeline links voice, subtitle cues, visual reveals, and highlights for narrated explainers/tutorials |
 | Quality bar | Polished final unless user says draft |
 
 State the assumption explicitly: *"Assuming 30fps and AAC audio unless you say otherwise — proceed?"*

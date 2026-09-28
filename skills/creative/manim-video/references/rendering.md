@@ -47,17 +47,21 @@ ffmpeg -y -f concat -safe 0 -i concat.txt -c copy final.mp4
 
 ## Add Voiceover
 
-```bash
-# Mux narration
-ffmpeg -y -i final.mp4 -i narration.mp3 -c:v copy -c:a aac -b:a 192k -shortest final_narrated.mp4
+For narrated explainers, muxing happens after rendering, but narration planning does not: lock the final voice track and derive the shared subtitle/visual timeline **before** final scene timing. These examples assume that exact approved audio file; do not generate or replace narration after alignment without rebuilding dependent timing and re-rendering.
 
-# Concat per-scene audio first
+```bash
+# Build/lock multi-part narration before aligning and timing scenes
 cat > audio_concat.txt << 'EOF'
 file 'audio/scene1.mp3'
 file 'audio/scene2.mp3'
 EOF
 ffmpeg -y -f concat -safe 0 -i audio_concat.txt -c copy full_narration.mp3
+
+# After rendering to the shared timeline, mux that exact locked narration
+ffmpeg -y -i final.mp4 -i full_narration.mp3 -c:v copy -c:a aac -b:a 192k -shortest final_narrated.mp4
 ```
+
+The `-shortest` mux option can truncate narration if scene timing is short. Confirm the rendered picture covers the complete locked voice track; never silently cut or speed up speech to make durations match. Re-time/re-render visuals and re-check the alignment instead.
 
 ## Add Background Music
 
@@ -84,13 +88,14 @@ manim -ql --resolution 1080,1080 script.py Scene  # 1:1 square
 
 ## Render Workflow
 
-1. Draft render all scenes at `-ql`
-2. Preview stills at key moments (`-s`)
-3. Fix and re-render only broken scenes
-4. Stitch with ffmpeg
-5. Review stitched output
-6. Production render at `-qh`
-7. Re-stitch + add audio
+For a narrated explainer, lock narration and derive its alignment/timeline before finalizing scene durations or event timing. Then:
+
+1. Draft render scenes at `-ql`, following the shared final-audio timeline.
+2. Preview stills at key moments (`-s`), including subtitle-safe placement.
+3. Fix and re-render broken scenes; if voice changes, rebuild alignment first.
+4. Production render at `-qh` and stitch with ffmpeg.
+5. Mux the exact locked voice track and reviewed SRT; preserve the master duration.
+6. Review the complete cut at normal speed for voice/subtitle/visual sync and repair/re-render any failure.
 
 ## manim.cfg — Project Configuration
 
@@ -131,9 +136,9 @@ class LongVideo(Scene):
 Render individual sections: `manim --save_sections script.py LongVideo`
 This outputs separate video files per section — useful for long videos where you want to re-render only one part.
 
-## manim-voiceover Plugin (Recommended for Narrated Videos)
+## manim-voiceover Plugin (Optional timing aid for Narrated Videos)
 
-The official `manim-voiceover` plugin integrates TTS directly into scene code, auto-syncing animation duration to voiceover length. This is significantly cleaner than the manual ffmpeg muxing approach above.
+The official `manim-voiceover` plugin can schedule scene animations from voiceover duration and bookmarks. For a narrated explainer, first generate and lock the approved voice audio, transcribe/force-align that exact file, and then render against the same cached/consumed audio. Do not let final rendering silently generate a replacement voice track: any audio change invalidates the subtitle and visual timeline.
 
 ### Installation
 
@@ -145,6 +150,8 @@ pip install "manim-voiceover[azure]"   # Azure Cognitive Services
 ```
 
 ### Usage
+
+The following is a timing-integration example, not permission to change narration during final rendering. If the service creates audio on its first run, perform that voice-only/preflight pass first, lock the exact output, review its alignment, and ensure final scene renders reuse it unchanged.
 
 ```python
 from manim import *
@@ -158,7 +165,8 @@ class NarratedScene(VoiceoverScene):
             model_id="eleven_multilingual_v2"
         ))
 
-        # Voiceover auto-controls scene duration
+        # Use the exact cached audio from the approved/locked voice pass.
+        # The tracker can schedule motion; separate final-audio alignment drives captions and beats.
         with self.voiceover(text="Here is a circle being drawn.") as tracker:
             self.play(Create(Circle()), run_time=tracker.duration)
 
@@ -169,10 +177,12 @@ class NarratedScene(VoiceoverScene):
 ### Key Features
 
 - `tracker.duration` — total voiceover duration in seconds
-- `tracker.time_until_bookmark("mark1")` — sync specific animations to specific words
-- Auto-generates subtitle `.srt` files
+- `tracker.time_until_bookmark("mark1")` — sync specific animations to spoken anchors
+- Can generate subtitle `.srt` files from the narration script
 - Caches audio locally — re-renders don't re-generate TTS
 - Works with: ElevenLabs, Azure, Google TTS, pyttsx3 (offline), and custom services
+
+Treat generated captions as a draft unless they have been verified against the actual final audio. For narrated production, transcribe/force-align the final synthesized audio and use those word/phrase timestamps as the source of truth for subtitle and visual timing; script text or bookmarks alone do not replace that check.
 
 ### Bookmarks for Precise Sync
 
@@ -182,4 +192,4 @@ with self.voiceover(text='This is a <bookmark mark="circle"/>circle.') as tracke
     self.play(Create(Circle()), run_time=tracker.time_until_bookmark("circle", limit=1))
 ```
 
-This is the recommended approach for any video with narration. The manual ffmpeg muxing workflow above is still useful for adding background music or post-production audio mixing.
+Use the plugin as an optional timing aid, not as a source of truth for subtitle wording or forced alignment. The manual ffmpeg workflow remains appropriate for muxing the exact locked voice track, adding background music, or post-production mixing.

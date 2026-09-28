@@ -120,21 +120,22 @@ When the paper has a key equation, don't just show it — build it from intuitio
 
 ### Equation reveal strategy
 
-```python
-# Show equation dimmed first (full destination)
-eq = MathTex(r"Attention(Q,K,V) = softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V")
-eq.set_opacity(0.15)
-self.play(FadeIn(eq))
+Do not display the complete equation as a dimmed “destination” before the narration has explained it. Build only the currently spoken term or a non-spoiling scaffold; reveal the complete equation after its components have been introduced. For the attention example, reveal and explain Q, K, and V at their corresponding spoken beats, then assemble the full expression and emphasize each term:
 
-# Highlight Q, K, V one at a time with color + label
+```python
+# Pseudocode: reveal each component only when its narration beat arrives.
 for part, color, label_text in [
     (r"Q", PRIMARY, "Query: what am I looking for?"),
     (r"K", SECONDARY, "Key: what do I contain?"),
     (r"V", ACCENT, "Value: what do I output?"),
 ]:
-    eq.set_color_by_tex(part, color)
+    term = MathTex(part, color=color)
     label = Text(label_text, font_size=18, color=color, font=MONO)
-    # position label, animate it, wait, then dim it
+    # Write term and label at the aligned spoken beat, then allow reading time.
+
+# Assemble/reveal the full expression only after its parts are established.
+eq = MathTex(r"Attention(Q,K,V) = softmax\left(\frac{QK^T}{\sqrt{d_k}}\right)V")
+self.play(Write(eq))
 ```
 
 ## Building architecture diagrams

@@ -85,36 +85,40 @@ Monotonous pacing feels like a lecture. Vary the tempo:
 - **Dramatic pause** before the key reveal (extra `self.wait(2.0)` before the "aha")
 - **Rapid montage** for "and this applies to X, Y, Z..." sequences (`LaggedStart` with tight lag_ratio)
 
-## Narration synchronization
+## Narration synchronization — the final audio is the master clock
 
-### The "see then hear" principle
+### One idea, one moment, three aligned channels
 
-The visual should appear slightly BEFORE the narration describes it. When the viewer sees a circle appear and THEN hears "consider a circle," the visual primes their brain for the concept. The reverse — hearing first, seeing second — creates confusion because they're searching the screen for something that isn't there yet.
+For narrated explainers, align what the learner hears, reads, and sees. Lock the final voice audio first; transcribe or force-align that audio, then derive subtitle cues and visual beats from the resulting word/phrase timeline. Do not estimate cue times from the source script or let independently timed tracks drift apart.
+
+The visual should normally reveal the concept at its spoken beat. A small anticipatory cue is acceptable only when it helps orient the viewer without revealing the answer; never pre-build the full explanation. Subtitle wording must follow the actual voice and must not lead substantially ahead or linger after the corresponding idea ends.
 
 ### Practical timing
 
 ```python
-# Scene duration should match narration duration.
-# If narration for this scene is 8 seconds:
-# Total animation run_times + total self.wait() times = ~8 seconds.
+# Scene duration should match the aligned narration duration, including pauses.
+# Use final-audio word/phrase timestamps for subtitle and visual event boundaries.
 
-# Use manim-voiceover for automatic sync:
-with self.voiceover(text="The gradient points downhill") as tracker:
+# manim-voiceover can synchronize scene duration and named spoken anchors:
+with self.voiceover(text='The gradient points <bookmark mark="direction"/>downhill.') as tracker:
     self.play(GrowArrow(gradient_arrow), run_time=tracker.duration)
+    # For a specific reveal, wait for the spoken anchor and use its tracker timing.
 ```
+
+Voiceover trackers and bookmarks help schedule animation, but verify caption wording and timing against the actual final audio. If the audio changes, regenerate or re-check its alignment and update all dependent subtitles and visual events.
 
 ## Equation decomposition strategy
 
-### The "dim and reveal" pattern
+### Progressive reveal without spoilers
 
 When building a complex equation step by step:
-1. Show the full equation dimmed at `opacity=0.2` (sets expectation for where you're going)
-2. Highlight the first term at full opacity
-3. Explain it
-4. Highlight the next term, dim the first to `0.5` (it's now context)
-5. Repeat until the full equation is bright
+1. Establish only the minimal problem context or a non-spoiling scaffold.
+2. Reveal the first term when the narration introduces it, then explain it.
+3. Reveal each next term at its spoken beat; keep unexplained terms hidden rather than displaying the complete answer dimmed in advance.
+4. Dim earlier terms only after they have been explained and become context.
+5. Show the complete equation when the narration has established its components.
 
-This is better than building left-to-right because the viewer always sees the destination.
+A small preview is acceptable only when it genuinely orients the learner without revealing the result. The whiteboard must not race ahead of the explanation.
 
 ### Term ordering
 
@@ -144,12 +148,12 @@ Then show data flowing through: `ShowPassingFlash` along the arrows, or a colore
 
 ### The zoom-and-return pattern
 
-For complex systems:
-1. Show the full overview (all boxes, small)
-2. Zoom into one box (`MovingCameraScene.camera.frame.animate`)
-3. Expand that box into its internal components
-4. Zoom back out to the overview
-5. Zoom into the next box
+For complex systems, use a non-spoiling overview when it helps orientation; do not reveal later outcomes or unexplained branches in full:
+1. Show only the high-level context or currently taught components.
+2. Zoom into one box (`MovingCameraScene.camera.frame.animate`).
+3. Reveal that box's internal components as the narration explains them.
+4. Zoom back out, adding the next explained component or connection.
+5. Continue progressively; show the complete overview only after its parts have been taught.
 
 ## Common design mistakes
 

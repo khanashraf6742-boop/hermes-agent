@@ -87,8 +87,12 @@ Once enough is known, produce a structured `brief.md` using the template in
 2. **Scope** — duration, aspect, platform, deadline
 3. **Style** — visual references, brand constraints, tone
 4. **Scenes** — beat-by-beat breakdown (durations, content, target tool)
-5. **Audio** — narration / music / SFX / silent (per scene if needed)
-6. **Deliverables** — file format, resolution, optional alternates (vertical cut, GIF, etc.)
+5. **Audio** — narration / music / SFX / silent (per scene if needed). For
+   narrated explainers/tutorials, mark three-layer sync mandatory: lock the
+   final voice audio, align the actual audio, and derive both captions and
+   visual timings from one shared timeline.
+6. **Deliverables** — file format, resolution, optional alternates (vertical
+   cut, GIF, etc.), and the sync artifacts required for QA
 
 Show the brief to the user for confirmation before designing the team. **The
 brief is the contract** — every downstream task references it.
@@ -158,6 +162,36 @@ product/marketing, music video, math/algorithm explainer, ASCII video, real-time
 installation — showing how the same workflow yields very different teams and
 task graphs. See **[references/examples.md](https://github.com/NousResearch/hermes-agent/blob/main/optional-skills/creative/kanban-video-orchestrator/references/examples.md)**.
 
+## Narrated explainer synchronization gate
+
+For an educational/explainer/tutorial video with spoken instruction,
+three-layer synchronization is a **non-negotiable production requirement**:
+
+- **Voice:** lock the final TTS/recorded narration before detailed render timing.
+- **Subtitles:** transcribe and align the actual final voice audio at the finest
+  reliable word, phrase, or sentence level; do not time captions independently
+  from the source script or estimate them by hand.
+- **Whiteboard / visuals:** make the renderer use the same audio-derived
+  timeline for progressive drawing, labels, highlights, numbers, and
+  transitions. Do not reveal later conditions or answers early.
+- **Shared handoff:** the captioner creates `audio/sync-timeline.json` and
+  `output/captions.srt` from the locked voice track before renderer timing is
+  finalized. Renderers and the editor consume that same timeline. Use the
+  bundled schema and validator copied into each generated workspace; verify the
+  timeline against the final audio fingerprint before releasing the render
+  gate. If the audio changes, invalidate and rebuild every dependent alignment,
+  caption, and visual-timing artifact.
+- **QA gate:** the reviewer compares actual voice, subtitle text, and visible
+  teaching content at normal speed. Any disagreement in meaning, timing,
+  terminology, Rule references, or numbers fails the scene; repair and re-render
+  before delivery.
+
+Set `three_layer_sync: true` in the bootstrap plan and include a `captioner`
+profile when this contract applies. In `TEAM.md`, the final-audio and alignment
+tasks must gate renderer timing; caption burning happens after assembly and uses
+the already-reviewed SRT. For Manim explainers, also follow the full
+synchronization requirements in the `manim-video` skill’s **33A. Three-Layer Synchronization** section.
+
 ## Critical rules
 
 1. **Discovery before action.** Never start generating a brief or team without
@@ -199,6 +233,13 @@ task graphs. See **[references/examples.md](https://github.com/NousResearch/herm
    A worker that hits a missing-key error wastes a task slot. The setup
    script's `check_key` helper aborts cleanly if a required key is missing.
 
+9. **Three-layer sync gates narrated explainers.** When the brief is a narrated
+   tutorial or explainer, set `three_layer_sync: true`, include a captioner,
+   lock and align the final audio before render timing, validate the shared
+   timeline against the final audio hash, and require the reviewer to compare
+   voice, subtitles, and visuals. Never approve or deliver around a mismatch;
+   see the synchronization gate above.
+
 ## File map
 
 ```
@@ -214,7 +255,10 @@ assets/
   brief.md.tmpl                     ← brief skeleton
   setup.sh.tmpl                     ← setup script skeleton
   soul.md.tmpl                      ← profile personality skeleton
+  sync-timeline.schema.json         ← narrated-video handoff contract
+  sync-timeline.example.json        ← starter timeline (replace sample data)
 scripts/
   bootstrap_pipeline.py             ← generate setup.sh from brief + team JSON
+  validate_sync_timeline.py         ← timeline/SRT/audio-fingerprint QA
   monitor.py                        ← polling + intervention helpers
 ```

@@ -7,6 +7,9 @@ Standards and checks for ensuring animation output is publication-ready.
 Before writing any Manim code:
 
 - [ ] Narration script written with visual beats marked
+- [ ] For narrated videos, final voice audio is locked before subtitle and visual timing is finalized
+- [ ] Transcript/word-or-phrase alignment has been reviewed against that final audio
+- [ ] Each important spoken idea maps to a subtitle cue and a corresponding visual beat
 - [ ] Scene list with purpose, duration, and layout for each
 - [ ] Color palette defined with meaning assignments (`PRIMARY` = main concept, etc.)
 - [ ] `MONO = "Menlo"` set as the font constant
@@ -169,7 +172,9 @@ Before running `manim -qh`:
 - [ ] All scenes render without errors at `-ql`
 - [ ] Preview stills at `-qm` for text-heavy scenes (check kerning)
 - [ ] Background color set in every scene (`self.camera.background_color = BG`)
-- [ ] `add_subcaption()` or `subcaption=` on every significant animation
+- [ ] For narrated scenes, subtitles come from the reviewed final-audio alignment, not hand-estimated timings
+- [ ] Spoken wording, subtitle text, terminology, Rule references, and numbers agree with the planned visual
+- [ ] Subtitle-safe placement does not cover critical whiteboard/diagram content
 - [ ] No text smaller than font_size=18
 - [ ] No text using proportional fonts (use monospace)
 - [ ] buff >= 0.5 on all `.to_edge()` calls
@@ -186,5 +191,8 @@ After stitching the final video:
 - [ ] Is there a moment where two things animate simultaneously and it's confusing?
 - [ ] Does every text label have enough time to be read?
 - [ ] Are transitions between scenes smooth (no black frames, no jarring cuts)?
-- [ ] Is the audio in sync with the visuals (if using voiceover)?
+- [ ] For narrated videos, audit at normal speed that voice, subtitles, and whiteboard/animation communicate the same idea at the same moment
+- [ ] Subtitles begin/end with their spoken phrase, remain readable, and avoid covering critical visuals
+- [ ] Numbers, terminology, Rule references, and qualifiers agree across voice, subtitles, and visuals
+- [ ] Reveals and highlights land on their aligned word/phrase anchors; the whiteboard does not race ahead
 - [ ] Is the Gibbs-like "first impression" good? The first 5 seconds determine if someone keeps watching

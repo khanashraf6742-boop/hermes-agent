@@ -35,12 +35,15 @@ Pick based on what the brief needs.
 
 ### writer / screenwriter
 
-Writes scripts, dialogue, voiceover copy, narration. Use for any video with
-spoken or written words beyond a tagline.
+Writes scripts, dialogue, voiceover copy, narration. For source-based teaching
+videos, first atomizes all claims, rules, numbers, exceptions, and qualifiers
+into a coverage matrix; then batches the approved content into spoken scenes.
+Obtain director/requester approval of the coverage and narration before handing
+off to voice-talent. Do not silently omit or simplify technically material qualifiers.
 
 - **Toolsets:** kanban, file
 - **Skills:** `humanizer` (post-process to strip AI-tells)
-- **Outputs:** `script.md`, `narration.md`, `dialogue/scene-NN.md`
+- **Outputs:** `script.md`, `narration.md`, `coverage-matrix.md`, `dialogue/scene-NN.md`
 
 ### copywriter
 
@@ -99,7 +102,9 @@ generator output for visual consistency. Hands off per-scene `VISUAL_SPEC.md`.
 A worker that produces visual content for one or more scenes. Loaded with
 whichever creative skill fits the scene's style. Multiple renderers can run in
 parallel, each pinned to a different skill via `always_load` in their profile
-or `--skill` on the task.
+or `--skill` on the task. For synchronized explainers, do not finalize scene
+timing until the locked-audio timeline is available; map each spoken teaching
+beat to the corresponding progressive visual reveal and highlight.
 
 - **Toolsets:** kanban, terminal, file
 - **Skills:** one creative skill (see specialized variants below)
@@ -170,14 +175,16 @@ audio's energy.
 
 ### voice-talent / narrator
 
-Generates voiceover audio. Calls a TTS API directly; no Hermes skill required
-(kanban guidance is auto-injected into every kanban worker). The user can also
-supply pre-recorded VO instead of generation.
+Generates the approved narration with one stable voice/configuration, or records
+an authorized supplied VO. For synchronized explainers, deliver one locked,
+final voice track before caption alignment and final visual timing; report its
+actual duration and any pronunciation or transcript corrections. Any change to
+the locked audio invalidates downstream alignment and timing.
 
 - **Toolsets:** kanban, terminal, file
 - **Skills:** none — kanban guidance is auto-injected into every kanban worker
 - **External APIs:** ElevenLabs, OpenAI TTS, etc.
-- **Outputs:** `audio/voiceover/line-NN.mp3`, `audio/voiceover/timeline.mp3`
+- **Outputs:** `audio/voiceover/final.mp3`, `audio/voiceover/metadata.json`
 
 ### foley / sfx-designer
 
@@ -194,7 +201,10 @@ sound design specifically.
 ### editor
 
 Assembles the final cut from clips. Uses ffmpeg for stitching, fades,
-transitions. Reviews each clip for pacing and quality before assembly.
+transitions. Reviews each clip for pacing and quality before assembly. In
+synchronized work, preserve the shared audio timeline and source offsets; if a
+cut or retime changes the audio relationship, invalidate and update dependent
+captions and visuals before export.
 
 - **Toolsets:** kanban, terminal, file
 - **Skills:** none — kanban guidance is auto-injected into every kanban worker
@@ -223,13 +233,20 @@ music under VO, normalizes loudness (LUFS).
 
 ### captioner
 
-Burns subtitles into the video, generates SRT, handles accessibility. Can also
-generate captions from audio via Whisper.
+For three-layer synchronized explainers, this role has two gated tasks. First,
+after the final voice track is locked and before render timing is finalized,
+transcribe and align the actual audio at the finest reliable word, phrase, or
+sentence level; produce the canonical subtitle file and shared timeline. Later, after assembly, burn or mux that
+already-reviewed subtitle track. Never estimate timestamps from the source
+script. If the audio changes, regenerate the transcript/alignment and notify
+the renderer and editor that dependent timing is stale.
 
 - **Toolsets:** kanban, terminal, file
 - **Skills:** none — kanban guidance is auto-injected into every kanban worker
-- **External tools:** Whisper (CLI or API), ffmpeg subtitle filters
-- **Outputs:** `output/captions.srt`, `output/final-captioned.mp4`
+- **External tools:** Whisper/WhisperX or provider-native alignment, ffmpeg subtitle filters
+- **Outputs:** `audio/sync-timeline.json`, `audio/transcript.json`, `output/captions.srt`, `output/final-captioned.mp4`
+- **Handoff validation:** set `audio_master.sha256` to the lowercase SHA-256 of the exact locked `final.mp3`, conform to `tools/sync-timeline.schema.json`, then run `python3 tools/validate_sync_timeline.py audio/sync-timeline.json --audio audio/voiceover/final.mp3 --srt output/captions.srt` before releasing renderer timing.
+- **Optional alignment reference:** [WhisperX on GitHub](https://github.com/m-bain/whisperx) provides an ASR + forced-alignment workflow; use an available, approved local/provider tool rather than making it a hard dependency. Do not upload private audio to an external service without the user's approval.
 
 ### masterer
 
@@ -246,8 +263,11 @@ Final encode + format variants. Produces deliverables for each platform target
 
 A neutral quality gate. Reads the brief, watches the cut, comments
 specifically on what's off (pacing, sync, brand alignment, technical
-quality). Distinct from the cinematographer (who reviews visuals during
-production) and the editor (who reviews for assembly).
+quality). For three-layer explainers, compares the actual voice, subtitle text,
+and visible teaching content at normal speed; mismatched wording, numbers,
+Rule references, terminology, timing, or premature reveals fail QA. Distinct
+from the cinematographer (who reviews visuals during production) and the editor
+(who reviews for assembly).
 
 - **Toolsets:** kanban, terminal, file, video, vision
 - **Skills:** none — kanban guidance is auto-injected into every kanban worker
@@ -281,8 +301,10 @@ violations.
   (music videos always; explainers sometimes).
 - **Add voice-talent** for any voiceover / narrative dialogue.
 - **Add audio-mixer** when there are 2+ audio sources (VO + music, music + SFX).
-- **Add captioner** for accessibility-priority projects (explainer, tutorial,
-  any platform that defaults to muted playback).
+- **Add captioner** for every narrated explainer/tutorial and whenever
+  `three_layer_sync: true`; it owns pre-render final-audio alignment as well as
+  the post-assembly subtitle burn. Add it for other formats when accessibility
+  or the target platform requires captions.
 - **Add reviewer** for high-stakes projects. Skip for quick experimental loops.
 - **Add masterer** when multiple platform deliverables are needed.
 

@@ -120,16 +120,22 @@ self.play(tracker.animate.set_value(5), run_time=3)
 
 ## Subtitles
 
-```python
-# Method 1: standalone
-self.add_subcaption("Key insight", duration=2)
-self.play(Write(equation), run_time=2.0)
+For narrated videos, create and time subtitle cues from a transcript/forced alignment of the **final audio**. Do not estimate durations or generate the final subtitle track independently from the source script. The API examples below show where Manim accepts a cue; in production, `caption_duration` must come from the aligned audio timeline.
 
-# Method 2: inline
-self.play(Write(equation), subcaption="Key insight", subcaption_duration=2)
+```python
+# `caption_duration` is read from the matching final-audio phrase alignment.
+self.add_subcaption(aligned_phrase_text, duration=caption_duration)
+self.play(Write(equation), run_time=aligned_visual_duration)
+
+# Inline API form; use the matching aligned cue and duration.
+self.play(
+    Write(equation),
+    subcaption=aligned_phrase_text,
+    subcaption_duration=caption_duration,
+)
 ```
 
-Manim auto-generates `.srt` subtitle files. Always add subcaptions for accessibility.
+Manim can emit `.srt` subtitle files, but verify the final cues against the actual audio. For each spoken teaching point, keep the subtitle and the visual beat semantically aligned with the same phrase timestamp. See **33A. Three-Layer Synchronization** in the skill prompt.
 
 ## Timing Patterns
 

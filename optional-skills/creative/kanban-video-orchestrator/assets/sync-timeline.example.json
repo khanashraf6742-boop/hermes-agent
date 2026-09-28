@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "audio_master": {
+    "path": "audio/voiceover/final.mp3",
+    "duration_s": 4.0,
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "language": "en"
+  },
+  "alignment_units": [
+    {"id": "a001", "granularity": "word", "start_s": 0.20, "end_s": 0.40, "text": "The", "concept_id": "maximum-period"},
+    {"id": "a002", "granularity": "word", "start_s": 0.41, "end_s": 0.90, "text": "maximum", "concept_id": "maximum-period"},
+    {"id": "a003", "granularity": "word", "start_s": 0.91, "end_s": 1.30, "text": "period", "concept_id": "maximum-period"},
+    {"id": "a004", "granularity": "word", "start_s": 1.31, "end_s": 1.42, "text": "is", "concept_id": "maximum-period"},
+    {"id": "a005", "granularity": "word", "start_s": 1.43, "end_s": 1.65, "text": "three", "concept_id": "maximum-period"},
+    {"id": "a006", "granularity": "word", "start_s": 1.66, "end_s": 2.00, "text": "hundred", "concept_id": "maximum-period"},
+    {"id": "a007", "granularity": "word", "start_s": 2.01, "end_s": 2.40, "text": "days", "concept_id": "maximum-period"}
+  ],
+  "captions": [
+    {
+      "id": "c001",
+      "start_s": 0.20,
+      "end_s": 2.55,
+      "text": "The maximum period is three hundred days.",
+      "alignment_ids": ["a001", "a002", "a003", "a004", "a005", "a006", "a007"],
+      "concept_id": "maximum-period"
+    }
+  ],
+  "visual_events": [
+    {
+      "id": "v001",
+      "start_s": 0.85,
+      "end_s": 1.30,
+      "kind": "write",
+      "description": "Write the maximum-period heading; keep the numerical answer hidden.",
+      "anchor_alignment_ids": ["a002"],
+      "concept_id": "maximum-period",
+      "scene_id": "scene-01"
+    },
+    {
+      "id": "v002",
+      "start_s": 1.43,
+      "end_s": 2.50,
+      "kind": "reveal",
+      "description": "Reveal 300 DAYS as the narrator speaks the number.",
+      "anchor_alignment_ids": ["a005", "a006", "a007"],
+      "concept_id": "maximum-period",
+      "scene_id": "scene-01"
+    }
+  ]
+}

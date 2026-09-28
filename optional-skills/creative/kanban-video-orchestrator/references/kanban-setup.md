@@ -29,7 +29,9 @@ Every video project gets one workspace under `~/projects/video-pipeline/<slug>/`
 │   └── style-frames/              ← optional: visual references
 ├── audio/
 │   ├── track.mp3                  ← provided music (if any)
-│   ├── voiceover/                 ← per-line TTS clips
+│   ├── voiceover/                 ← TTS/recorded clips; final.mp3 is the locked narration
+│   ├── transcript.json            ← reviewed speech and word/phrase/sentence timestamps
+│   ├── sync-timeline.json         ← canonical subtitle + visual event timing (when required)
 │   └── sfx/                       ← sound effects
 ├── assets/
 │   ├── logos/
@@ -44,7 +46,7 @@ Every video project gets one workspace under `~/projects/video-pipeline/<slug>/`
 │   ├── scene-02/...
 │   └── ...
 ├── checkpoints/                   ← global review frames
-├── tools/                         ← optional project-local helpers
+├── tools/                         ← sync schema/example/validator for narrated explainers
 └── output/
     ├── final.mp4                  ← stitched + audio
     ├── final-noaudio.mp4
@@ -55,11 +57,32 @@ Every video project gets one workspace under `~/projects/video-pipeline/<slug>/`
 **The slug** is derived from the brief title: lowercase, hyphen-separated.
 Example: `q3-product-teaser`, `ascii-mood-loop`, `interview-cut-2026-q1`.
 
+For a three-layer-sync project, the bootstrap copies
+`tools/sync-timeline.schema.json`, `tools/sync-timeline.example.json`, and
+`tools/validate_sync_timeline.py` into the workspace. Use the example as a
+starter only; replace its placeholder audio hash and all sample timestamps and
+content. The timeline links word-, phrase-, or sentence-alignment units to
+caption cues and visual events with shared IDs and concept IDs, and fingerprints
+the locked audio with SHA-256.
+After producing `audio/sync-timeline.json`, run:
+
+```bash
+python3 tools/validate_sync_timeline.py audio/sync-timeline.json --audio audio/voiceover/final.mp3 --srt output/captions.srt
+```
+
+The validator checks the audio fingerprint, alignment-unit/caption coverage,
+cue timing, SRT text/timing against canonical cues, subtitle density, and visual
+reveal lead/lag. Its thresholds can be adjusted with `--max-cps`,
+`--max-visual-lead-s`, and `--max-visual-lag-s` when justified by
+language/style; automated checks do not replace listening to the voice or
+reviewing the rendered video.
+
 ## The setup.sh script
 
 The setup script does six things in order:
 
-1. **Create workspace tree** — all directories above
+1. **Create workspace tree** — all directories above; install the sync
+   schema/example/validator when three-layer sync is enabled
 2. **Create profiles** — `hermes profile create <name> --clone`
 3. **Configure profiles** — patch each profile's
    `~/.hermes/profiles/<name>/config.yaml` to set toolsets, always_load skills,
@@ -138,6 +161,11 @@ the entire production. **Critical content for the director's SOUL.md:**
 - **Decomposition steps:** Read `brief.md`, `TEAM.md`, `taste/`. Use the team
   graph in `TEAM.md` to fan out tasks.
 - **The workspace_path rule** (see below).
+- **Three-layer synchronization gate** for narrated explainers/tutorials: lock
+  final voice audio, require a captioner alignment task before renderer timing,
+  validate one `audio/sync-timeline.json` against the generated schema and audio
+  hash, pass it to every renderer/editor, burn the reviewed SRT after assembly,
+  and block delivery on any voice/subtitle/visual mismatch.
 
 Other profiles' SOUL.md is briefer; mostly mechanical: who you are, what you
 read, what you produce, what skills/tools to use, where to write outputs.
