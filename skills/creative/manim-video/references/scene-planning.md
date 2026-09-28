@@ -61,7 +61,8 @@ FAST = 0.8; NORMAL = 1.5; SLOW = 2.5
 ## Scene Checklist
 
 - [ ] Background color set
-- [ ] Subcaptions on every animation
+- [ ] For narrated scenes, subtitle cues follow spoken phrases and are timed from final-audio alignment (not manually estimated)
+- [ ] Voice, subtitle, and visual meaning match at each important teaching beat
 - [ ] `self.wait()` after every reveal
 - [ ] Text buff >= 0.5 for edge positioning
 - [ ] No text overlap
@@ -113,6 +114,11 @@ FAST = 0.8; NORMAL = 1.5; SLOW = 2.5
 ### Animation sequence
 1. [Animation] -- [what it reveals] (~Ns)
 
-### Subtitle
-"[text]"
+### Narrated timeline (when narration is present)
+
+| Final-audio time / phrase | Subtitle cue | Whiteboard / visual event | Highlight | Safe subtitle position |
+|---|---|---|---|---|
+| [aligned timestamp + spoken phrase] | [faithful cue] | [progressive reveal at same beat] | [optional spoken anchor] | [clear region] |
+
+Derive timestamps from the final audio, not from the source script. Keep each cue short enough to read and each visual reveal aligned to the same teaching idea.
 ```

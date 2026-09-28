@@ -1,5 +1,9 @@
 # Equations and LaTeX Reference
 
+## Narrated derivation timing
+
+For narrated videos, these derivation patterns describe the visual sequence—not subtitle or final timing estimates. Derive caption and reveal boundaries from the final voice audio and use the shared word/phrase/sentence timeline. The fixed waits below are illustrative for silent scenes; in narrated scenes, coordinate every equation reveal with the corresponding spoken beat. Never show a later answer dimmed in advance.
+
 ## Basic LaTeX
 
 ```python

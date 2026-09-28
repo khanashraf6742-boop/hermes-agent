@@ -44,7 +44,7 @@ This is educational cinema. Every frame teaches. Every animation reveals structu
 
 **First-render excellence is non-negotiable.** The output must be visually clear and aesthetically cohesive without revision rounds. If something looks cluttered, poorly timed, or like "AI-generated slides," it is wrong.
 
-**Opacity layering directs attention.** Never show everything at full brightness. Primary elements at 1.0, contextual elements at 0.4, structural elements (axes, grids) at 0.15. The brain processes visual salience in layers.
+**Opacity layering directs attention.** Use salience to separate currently taught elements from already-introduced context—for example, primary elements at 1.0, contextual elements at 0.4, structural elements (axes, grids) at 0.15. Never use low opacity to preview an unexplained answer or future teaching content.
 
 **Breathing room.** Every animation needs `self.wait()` after it. The viewer needs time to absorb what just appeared. Never rush from one animation to the next. A 2-second pause after a key reveal is never wasted.
 
@@ -76,19 +76,343 @@ Single Python script per project. No browser, no Node.js, no GPU required.
 | Math | LaTeX (texlive/MiKTeX) | Equation rendering via `MathTex` |
 | Video I/O | ffmpeg | Scene stitching, format conversion, audio muxing |
 | TTS | ElevenLabs / Qwen3-TTS (optional) | Narration voiceover |
+| ASR / forced alignment | Available transcription/alignment tooling | Word/phrase timings from final voice audio |
 
 ## Pipeline
 
+For narrated educational videos, the final voice track is locked before subtitle or animation timing is finalized:
+
 ```
-PLAN --> CODE --> RENDER --> STITCH --> AUDIO (optional) --> REVIEW
+SOURCE / COVERAGE → SCRIPT → FINAL VOICE AUDIO → TRANSCRIPTION / ALIGNMENT
+→ MASTER TIMELINE → SUBTITLES + WHITEBOARD / ANIMATION → RENDER / STITCH → THREE-LAYER QA
 ```
 
-1. **PLAN** — Write `plan.md` with narrative arc, scene list, visual elements, color palette, voiceover script
-2. **CODE** — Write `script.py` with one class per scene, each independently renderable
-3. **RENDER** — `manim -ql script.py Scene1 Scene2 ...` for draft, `-qh` for production
-4. **STITCH** — ffmpeg concat of scene clips into `final.mp4`
-5. **AUDIO** (optional) — Add voiceover and/or background music via ffmpeg. See `references/rendering.md`
-6. **REVIEW** — Render preview stills, verify against plan, adjust
+For silent videos, use the same visual-planning and render/review stages without the audio-alignment steps. See **33A. Three-Layer Synchronization** for the mandatory narrated-video contract.
+
+1. **PLAN** — Write `plan.md` with source coverage, narrative arc, scene list, visual beats, color palette, and narration script. For source-based explainers, account for each material teaching point before batching it into scenes.
+2. **LOCK VOICE** (when narrated) — Generate or record the final approved narration before final visual timing. Preserve the exact final audio as the timing master.
+3. **ALIGN** (when narrated) — Transcribe and word/phrase-align the final audio where tooling permits. Correct transcript errors against the audio, then build the shared timeline for subtitles and visual events.
+4. **CODE** — Write `script.py` with one class per scene, each independently renderable. Drive caption cues, reveals, and highlights from the shared audio-derived timeline; do not guess their times independently.
+5. **RENDER / STITCH** — Render the scenes, stitch them into `final.mp4`, then mux the locked audio and aligned subtitle track as needed. See `references/rendering.md`.
+6. **REVIEW** — Review the complete video at normal speed and audit voice, subtitle, whiteboard/animation, and highlights together. Repair and re-render any mismatch.
+
+## 33A. THREE-LAYER SYNCHRONIZATION — NON-NEGOTIABLE
+
+### VOICE + SUBTITLES + WHITEBOARD MUST WORK AS ONE SYSTEM
+
+For every narrated educational or technical video, treat the voice, subtitles, and visual explanation (whiteboard, diagram, or animated canvas) as one production system—not separate deliverables. They must remain semantically, temporally, and visually coherent throughout the entire video. The learner must never hear one concept while reading another and seeing a third unrelated concept.
+
+The **final voice track is the master timing reference**. Subtitles and visual events are derived from its actual timing, not independently estimated from the source or script.
+
+### 33A.1 MASTER SYNCHRONIZATION PRINCIPLE
+
+> **ONE IDEA → ONE MOMENT → THREE ALIGNED CHANNELS**
+
+For every important teaching point:
+
+1. **Voice** explains it.
+2. **Subtitle** displays the corresponding spoken content.
+3. **Whiteboard / animated canvas** demonstrates the same concept.
+
+Subtitle wording must follow the final-audio transcript; concise whiteboard labels may use natural graphical notation only when they preserve the spoken meaning and timing.
+
+Example:
+
+**Voice:** “The maximum period is 300 days.”
+
+**Subtitle:** “The maximum period is 300 days.”
+
+**Whiteboard:**
+
+<!-- ascii-guard-ignore -->
+```text
+┌──────────────────────┐
+│   MAXIMUM PERIOD     │
+│                      │
+│      300 DAYS        │
+└──────────────────────┘
+```
+<!-- ascii-guard-ignore-end -->
+
+The number **300 DAYS** appears or receives emphasis when it is spoken.
+
+### 33A.2 SUBTITLES MUST FOLLOW THE ACTUAL VOICE
+
+Do not create subtitles from the source or pre-TTS script independently. Do not manually guess subtitle timestamps. Use this pipeline for narrated work:
+
+```text
+FINAL TTS / RECORDED AUDIO (locked)
+    ↓
+TRANSCRIPTION + FORCED ALIGNMENT against that audio
+    ↓
+WORD / PHRASE / SENTENCE TIMESTAMPS + PAUSES
+    ↓
+SUBTITLE SEGMENTATION
+    ↓
+WHITEBOARD / ANIMATION EVENTS MAPPED TO THE SAME TIMELINE
+    ↓
+FINAL VIDEO + THREE-LAYER QA
+```
+
+Use the final audio waveform as the timing authority. Correct transcription errors against the audio, then preserve its actual word and phrase timings. If the voice track changes, regenerate or re-check the transcript, alignment, subtitles, and dependent visual timings before rendering again.
+
+### 33A.3 WORD- AND PHRASE-LEVEL SYNCHRONIZATION
+
+Where the available tooling supports it, obtain word timestamps, phrase timestamps, sentence timestamps, and pause locations. Use them to coordinate subtitle changes and the drawing, highlighting, arrows, numbers, Rule references, table rows, and flowchart branches. When exact word alignment is unavailable, align at the finest reliable phrase or sentence level from the final audio—never fabricate precision.
+
+Example:
+
+```text
+VOICE:     “Rule 39-A provides for...”
+SUBTITLE:  “Rule 39-A provides for...”
+WHITEBOARD:
+           Rule 39-A
+               ↓
+           [Main provision]
+```
+
+Progress all three layers together.
+
+### 33A.4 DO NOT LET SUBTITLES LEAD TOO FAR AHEAD
+
+Subtitles must not reveal a complete explanation substantially before the teacher speaks it. Avoid showing later conditions, conclusions, or exceptions while the narration is still introducing the topic. Reveal only the current spoken thought, progressively.
+
+Prefer:
+
+```text
+VOICE:     “First, let’s understand the basic rule.”
+SUBTITLE:  “First, let’s understand the basic rule.”
+WHITEBOARD: [Basic Rule]
+```
+
+Then reveal the next information when the narration reaches it.
+
+### 33A.5 DO NOT LET SUBTITLES LAG BEHIND
+
+A subtitle must not remain after its spoken idea has finished or continue to show the previous sentence while the voice moves on. Change or remove it naturally at the aligned phrase boundary; do not keep stale text on screen for convenience.
+
+### 33A.6 SUBTITLE SEGMENTATION
+
+Do not use enormous subtitle paragraphs. Break narration into short, meaningful, comfortably readable chunks while preserving the exact spoken meaning and all substantive information. Do not arbitrarily paraphrase technically precise narration or omit qualifiers to shorten a cue.
+
+Prefer:
+
+> The maximum period<br />
+> is 300 days.
+
+rather than forcing an unnecessarily long sentence into one fast-reading caption. If the spoken explanation is long, segment it across the actual speech; do not display the full paragraph early.
+
+### 33A.7 READABILITY RULE
+
+Subtitles must be large enough to read, high contrast, clean, uncluttered, appropriately positioned, synchronized, and free from unnecessary decoration. Optimize for comfortable reading at the final delivery resolution and playback size.
+
+### 33A.8 SUBTITLE POSITIONING
+
+Default to the lower portion of the frame, but dynamically avoid covering critical whiteboard content. If that region contains a table, formula, flowchart, important Rule text, diagram, or calculation, move the subtitle to a clear safe area. Never obscure the key teaching visual to preserve a fixed caption position.
+
+### 33A.9 WHITEBOARD-SAFE SUBTITLE AREA
+
+Plan a subtitle-safe region in the composition. It should integrate naturally with the whiteboard aesthetic; do not add a visually obvious, permanent “subtitle box” that makes the video look like a conventional presentation. Reposition the actual subtitle when the visual layout needs the reserved area.
+
+### 33A.10 HIGHLIGHTING KEY WORDS
+
+Emphasize only genuinely important spoken elements, such as **Rule 39-A**, **300 DAYS**, **WITHIN 30 DAYS**, **EXCEPTION**, **SHALL**, **MAY**, or **ELIGIBLE**. Each highlight must correspond to the moment that word or concept is spoken. Do not highlight everything.
+
+### 33A.11 WHITEBOARD MUST NOT RACE AHEAD OF THE NARRATION
+
+Never draw or display the complete answer before the teacher has explained it. Reveal conditions, rows, branches, labels, and conclusions progressively at their corresponding spoken beats. For example, when the narration says “There are three conditions,” do not show all three conditions several seconds before they are explained.
+
+### 33A.12 WHITEBOARD MAY ANTICIPATE SLIGHTLY ONLY WHEN PEDAGOGICALLY NECESSARY
+
+A visual may appear a small amount before its exact verbal explanation only when this genuinely improves comprehension. The anticipation must function as an orientation cue, not a spoiler. Do not reveal the answer prematurely, and do not let the visual get materially ahead of the narration.
+
+### 33A.13 SYNCHRONIZED REVEAL SYSTEM
+
+For important concepts, coordinate the reveal as one teaching rhythm:
+
+1. **VOICE** introduces the concept.
+2. **SUBTITLE** displays the corresponding spoken phrase.
+3. **HAND / ANIMATION** begins drawing.
+4. **WHITEBOARD** builds the concept.
+5. **HIGHLIGHT** emphasizes the key element at its spoken anchor.
+
+### 33A.14 EXAMPLE — FLOWCHART SYNCHRONIZATION
+
+Voice:
+
+> “First, check whether the condition is satisfied.”
+
+Subtitle:
+
+> “First, check whether the condition is satisfied.”
+
+Whiteboard:
+
+<!-- ascii-guard-ignore -->
+```text
+       ┌───────────────┐
+       │   CONDITION   │
+       └───────────────┘
+```
+<!-- ascii-guard-ignore-end -->
+
+Then, when the voice says “If the condition is satisfied, move to the next step,” show that spoken sentence in the subtitle and draw the branch and arrow at that moment. The whiteboard may use the concise label **YES → NEXT STEP**:
+
+<!-- ascii-guard-ignore -->
+```text
+       CONDITION
+          │
+       YES ↓
+     NEXT STEP
+```
+<!-- ascii-guard-ignore-end -->
+
+### 33A.15 EXAMPLE — COMPARISON TABLE SYNCHRONIZATION
+
+When the voice says “Now compare the two situations,” show that full phrase in the subtitle and introduce the table headings. When it says “The first difference is the applicable authority,” keep the matching spoken phrase in the subtitle and reveal or highlight only the first row. When it says “The second difference is the time limit,” align that phrase and reveal the second row. Do not display later rows before they are taught.
+
+<!-- ascii-guard-ignore -->
+```text
+┌──────────────┬──────────────┐
+│ Situation A  │ Situation B  │
+└──────────────┴──────────────┘
+```
+<!-- ascii-guard-ignore-end -->
+
+### 33A.16 EXAMPLE — NUMERICAL LIMIT
+
+- **Voice:** “The maximum period is 300 days.”
+- **Subtitle:** “The maximum period is 300 days.”
+- **Whiteboard:**
+
+```text
+MAXIMUM
+   ↓
+300 DAYS
+```
+
+At the words **“300 days,”** the number receives the primary visual emphasis.
+
+### 33A.17 SUBTITLE TEXT MUST NOT CONFLICT WITH THE WHITEBOARD
+
+Any disagreement among the voice, subtitle, and whiteboard about a key fact, number, Rule reference, condition, or exception is an **AUTOMATIC FATAL QA ERROR**. For example, if the voice says “300 days” while the subtitle says “180 days,” do not render or deliver the video until the conflict is corrected and all affected layers are re-checked.
+
+### 33A.18 TERMINOLOGY CONSISTENCY
+
+Use consistent terminology across the source, narration, subtitles, whiteboard, storyboard, and coverage matrix. If the source says “earned leave,” do not switch randomly to “annual leave,” “EL,” or “vacation leave.” A deliberate plain-language explanation is fine when it is clearly introduced and does not alter the technical meaning.
+
+### 33A.19 RULE NUMBERS MUST MATCH EVERYWHERE
+
+If the narration says **Rule 39-A**, the subtitle and whiteboard must also say **Rule 39-A**. Any storyboard or coverage-matrix entry must match too. Check all numbers and references against the source; inconsistent references are not permitted.
+
+### 33A.20 SUBTITLE QUALITY CONTROL
+
+For every subtitle segment verify:
+
+- [ ] Exact synchronization with the final voice audio
+- [ ] Correct wording and spoken meaning
+- [ ] Correct Rule references and numbers
+- [ ] Consistent terminology
+- [ ] No missing qualifiers or unintended paraphrasing
+- [ ] No spelling errors
+- [ ] Readable line length and reading speed
+- [ ] No overlap with important whiteboard content
+- [ ] Appropriate display duration and phrase boundaries
+
+### 33A.21 READING SPEED
+
+Do not prioritize fitting more text over comfortable reading. If narration is too dense for subtitles, do not display an entire paragraph faster. Instead, improve TTS sentence segmentation before locking the voice, create shorter meaningful subtitle segments, preserve the complete spoken information, and provide adequate reading time. Never remove substantive content solely to make subtitles shorter.
+
+### 33A.22 THREE-LAYER QA
+
+Before final rendering, compare all three layers for every important teaching unit:
+
+1. **Voice:** What is actually being said?
+2. **Subtitle:** What is the learner reading?
+3. **Whiteboard:** What is the learner seeing?
+
+> **VOICE = SUBTITLE = VISUAL MEANING**
+
+The wording need not be identical when the whiteboard represents the idea graphically, but the meaning and timing must align.
+
+### 33A.23 FINAL SYNCHRONIZATION AUDIT
+
+For every scene, verify the progression:
+
+```text
+VOICE
+  ↓
+SUBTITLE
+  ↓
+WHITEBOARD
+  ↓
+HIGHLIGHT
+  ↓
+NEXT CONCEPT
+```
+
+Ask whether the learner hears the correct concept, reads its corresponding spoken content, sees a visual that explains the same concept, and receives each visual at the appropriate moment. Confirm that subtitles remain readable, the frame stays uncluttered, and the next concept begins only after the current one is established. If any answer is no, **fail the scene → repair → re-render**.
+
+### 33A.24 MASTER TIMELINE
+
+Maintain one master timeline derived from the final audio. All subtitle cues, whiteboard drawing events, highlights, and transitions must use it. The times below illustrate the structure; production timings must come from the actual audio alignment:
+
+<!-- ascii-guard-ignore -->
+```text
+TIME
+│
+├── 00:00 Voice begins
+│       ├── Subtitle appears
+│       └── Whiteboard title appears
+│
+├── 00:04 Key term spoken
+│       ├── Subtitle updates
+│       └── Key term is drawn
+│
+├── 00:08 Condition explained
+│       ├── Subtitle updates
+│       └── Flowchart branch is drawn
+│
+├── 00:15 Exception spoken
+│       ├── Subtitle updates
+│       └── Exception branch appears
+│
+└── 00:22 Transition to next concept
+        ├── Subtitle changes
+        ├── Camera pans
+        ├── Hand moves
+        └── Next concept begins
+```
+<!-- ascii-guard-ignore-end -->
+
+### 33A.25 FINAL PRODUCTION PRINCIPLE
+
+The finished video must feel as though:
+
+> **The teacher is speaking, the subtitles are faithfully following the teacher, and the teacher’s hand is simultaneously building the explanation on one continuous whiteboard.**
+
+Not:
+
+> **Voice + unrelated captions + unrelated animation.**
+
+The learner should be able to **HEAR IT + READ IT + SEE IT** at the same moment. That three-channel coherence is mandatory.
+
+For narrated work, the production architecture is:
+
+```text
+SOURCE
+→ ATOMIC COVERAGE
+→ BATCHING
+→ TTS
+→ WORD / PHRASE TIMESTAMPS
+→ SUBTITLES
+→ CONTINUOUS WHITEBOARD / ANIMATED CANVAS
+→ SYNCHRONIZED HIGHLIGHTS
+→ FINAL VIDEO
+→ THREE-LAYER QA
+```
+
+The actual final TTS audio is the master clock: derive subtitle and whiteboard timing from it, never time those layers independently.
 
 ## Project Structure
 
@@ -160,11 +484,17 @@ Never use identical config for all scenes. For each scene:
 
 ### Step 1: Plan (plan.md)
 
-Before any code, write `plan.md`. See `references/scene-planning.md` for the comprehensive template.
+Before any code, write `plan.md`. For source-based explainers, identify and account for each material teaching point before batching it into narration and scenes. Include the narrative arc, visual beats, voiceover script, and intended subtitle/visual relationship. See `references/scene-planning.md` for the comprehensive template.
 
-### Step 2: Code (script.py)
+### Step 2: Lock and align narration (narrated videos)
 
-One class per scene. Every scene is independently renderable.
+Generate or record the approved narration and lock the final audio before finalizing subtitle or animation timing. Transcribe and word/phrase-align that audio with available ASR/forced-alignment tooling; review the transcript against the audio and create one master timeline. When exact word alignment is unavailable, use the finest reliable phrase or sentence timing available from the final audio. If the audio changes, redo the dependent alignment and timing.
+
+For videos without narration, skip this step and proceed with the visual plan.
+
+### Step 3: Code (script.py)
+
+One class per scene. Every scene is independently renderable. For narrated scenes, use the master timeline to coordinate voice, caption cues, drawing/reveals, and highlights.
 
 ```python
 from manim import *
@@ -179,6 +509,8 @@ class Scene1_Introduction(Scene):
     def construct(self):
         self.camera.background_color = BG
         title = Text("Why Does This Work?", font_size=48, color=PRIMARY, weight=BOLD, font=MONO)
+        # API illustration only: in narrated work, cue text and duration come
+        # from alignment against the final audio, never a manual estimate.
         self.add_subcaption("Why does this work?", duration=2)
         self.play(Write(title), run_time=1.5)
         self.wait(1.0)
@@ -186,19 +518,20 @@ class Scene1_Introduction(Scene):
 ```
 
 Key patterns:
-- **Subtitles** on every animation: `self.add_subcaption("text", duration=N)` or `subcaption="text"` on `self.play()`
+- **Captions** follow meaningful spoken phrases and are timed from the final-audio alignment; do not guess their timing or derive them independently from source text.
+- **Synchronized visuals** reveal the concept at its spoken beat; do not draw the complete answer ahead of the explanation.
 - **Shared color constants** at file top for cross-scene consistency
 - **`self.camera.background_color`** set in every scene
 - **Clean exits** — FadeOut all mobjects at scene end: `self.play(FadeOut(Group(*self.mobjects)))`
 
-### Step 3: Render
+### Step 4: Render
 
 ```bash
 manim -ql script.py Scene1_Introduction Scene2_CoreConcept  # draft
 manim -qh script.py Scene1_Introduction Scene2_CoreConcept  # production
 ```
 
-### Step 4: Stitch
+### Step 5: Stitch
 
 ```bash
 cat > concat.txt << 'EOF'
@@ -208,11 +541,13 @@ EOF
 ffmpeg -y -f concat -safe 0 -i concat.txt -c copy final.mp4
 ```
 
-### Step 5: Review
+### Step 6: Review
 
 ```bash
 manim -ql --format=png -s script.py Scene2_CoreConcept  # preview still
 ```
+
+Review the complete rendered video at normal speed, not only still frames. Compare the actual audio, subtitles, and whiteboard/animation for every important idea; fix and re-render any wording, timing, number, terminology, or layout conflict.
 
 ## Critical Implementation Notes
 

@@ -59,6 +59,7 @@ deadlocks).
 | Specialist tasks completing instantly | Decomposition created tasks without bodies | Director didn't pass enough context. Re-create with explicit body content. |
 | Tasks created but never picked up | Profile not running, or tenant mismatch, or dispatcher not running | Check `hermes profile list` (profile exists?), `hermes status` (gateway/dispatcher up?), and verify tenant. |
 | Specific renderer task fails → review note → renderer redoes → fails again | Brief is asking for the impossible | Pivot the brief, not the renderer. |
+| TTS/voice track changes after sync alignment | Captions and visual timing now reference stale audio | Block dependent render/editor tasks; rerun alignment from the new final audio and replace `audio/sync-timeline.json` + `output/captions.srt` before resuming. |
 
 ## Intervention recipes
 
@@ -81,10 +82,26 @@ hermes kanban create "Scene 3 — re-render with feedback" \
     --max-runtime 30m
 ```
 
+### Repairing a stale three-layer timeline
+
+If final narration changes after alignment, treat every downstream timing artifact
+as stale. Do not patch only the SRT or keep existing renderer timings:
+
+1. Block or pause dependent renderer/editor tasks.
+2. Re-run the captioner against the new final voice audio.
+3. Replace `audio/transcript.json`, `audio/sync-timeline.json`, and
+   `output/captions.srt`; update the timeline's audio SHA-256 fingerprint.
+4. Run `python3 tools/validate_sync_timeline.py audio/sync-timeline.json --audio audio/voiceover/final.mp3 --srt output/captions.srt` and resolve every failure.
+5. Re-render affected scenes and reassemble using the new timeline.
+6. Have the reviewer re-check voice, subtitles, and visuals at normal speed.
+
 ### Adding a new dependency mid-flight
 
-When the editor needs an asset that wasn't originally planned (e.g., a captions
-file):
+For projects without a pre-render three-layer sync gate, this applies when the
+editor needs an asset that wasn't originally planned (e.g., a captions file).
+For a narrated explainer with `three_layer_sync: true`, do not wait until after
+rendering to create captions—the captioner alignment task must gate renderer
+timing. If that gate was missed, use the stale-timeline repair recipe above.
 
 ```bash
 # 1. Create the new task and capture its id

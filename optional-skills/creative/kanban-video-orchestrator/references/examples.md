@@ -125,22 +125,32 @@ diagrams, equations, narration. Square 1:1.
 - `renderer-manim` — all animated scenes (loads `manim-video`)
 - `voice-talent` — narration via ElevenLabs
 - `editor` — assembly + audio mux
-- `captioner` — burned subtitles
+- `captioner` — pre-render alignment + post-assembly subtitle burn
+- `reviewer` — three-layer final QA
 
 **Task graph:**
 ```
 T0  director           decompose
-T1  writer             script + narration                  (parent: T0)
-T2  cinematographer    visual spec for all scenes           (parent: T1)
-T3a-Tn renderer-manim  scenes 1..N                          (parents: T2)
-T4  voice-talent       narration audio                      (parent: T1)
-T5  editor             cut + mux                            (parents: T3*, T4)
-T6  captioner          SRT + burn                           (parent: T5)
+T1  writer             atomic coverage + approved narration  (parent: T0)
+T2  cinematographer    visual spec for all scenes            (parent: T1)
+T3  voice-talent       final locked narration audio           (parent: T1)
+T4  captioner          align final audio; transcript + sync-timeline.json + captions.srt (parent: T3)
+T5a-Tn renderer-manim  scenes 1..N using shared timeline      (parents: T2, T4)
+T6  editor             cut + mux                             (parents: T5*, T3, T4)
+T7  captioner          burn reviewed SRT after assembly       (parents: T6, T4)
+T8  reviewer           three-layer QA + delivery gate         (parent: T7)
 ```
 
 **Key choices:**
 - `manim-video` skill drives both the cinematographer (visual language) and
   the renderer (actual scene production)
+- TTS is locked before final scene timing; the captioner aligns the actual
+  narration and produces the shared timeline before render tasks start
+- Renderers, editor, and final caption-burn task consume the same aligned cues;
+  the reviewer checks voice, subtitles, and visuals together
+- The bootstrap copies a JSON Schema and dependency-free timeline validator into
+  `tools/`; the captioner verifies aligned-unit/cue coverage, SRT agreement,
+  and the locked-audio SHA-256 before releasing render timing
 - The `manim-video` skill's reference docs (animation-design-thinking,
   scene-planning, equations) auto-load when needed via the renderer's pinned skill
 

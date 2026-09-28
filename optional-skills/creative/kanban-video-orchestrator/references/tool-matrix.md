@@ -66,7 +66,8 @@ them directly.
 |------|--------------|----------------------|
 | `ffmpeg` | Video / audio encode, splice, mux | renderer, editor, audio-mixer, masterer |
 | `ffprobe` | Inspect media | All media-touching profiles |
-| Whisper (CLI or API) | Speech-to-text for captions | captioner |
+| Whisper / WhisperX / provider-native aligner | ASR plus word/phrase timestamps from final audio (capability varies by tool/language) | captioner |
+| Project-local `tools/validate_sync_timeline.py` | Standard-library checks for audio fingerprint, alignment-unit/caption coverage, SRT agreement, cue timing/readability, and visual anchors | captioner, reviewer |
 | Text-to-image API (FAL / Replicate / OpenAI / Midjourney) | Stills generation | image-generator (alternative to local `comfyui`) |
 | Image-to-video API (Runway / Kling / Luma / Pika) | Animate stills | image-to-video-generator |
 | Text-to-speech API (ElevenLabs / OpenAI TTS / etc.) | Voiceover generation | voice-talent |
