@@ -22,8 +22,9 @@ single merged document with the numbering resolved.
 Where the review asked for two things both called "ADD-33", they are split (`ADD-33` Maharashtra,
 `ADD-34` micro-dilutions, `ADD-35` Tamil Nadu).
 
-**⚠️ Seven of the review's own facts did not survive checking.** Read §6 before recording —
-three of them would have put wrong numbers on air.
+**⚠️ Six of the review's facts did not survive checking** — three would have put wrong numbers on
+air. And **three of my own corrections were wrong** and have been withdrawn, including one on
+Section 1(3). Read §6 before recording.
 
 ---
 
@@ -56,7 +57,7 @@ three of them would have put wrong numbers on air.
 | `BONUS-14` | Line edit | §24 cross-ref to `ADD-35` |
 | `BONUS-19` | **Rewrite tail** | Staffing + safety |
 | after `P04` | **New** | `BONUS-20` filing, `BONUS-21` rejections, `BONUS-22` first appeal |
-| new block | **New** | `ADD-33` → `ADD-43` |
+| new block | **New** | `ADD-33` → `ADD-44` |
 
 ---
 
@@ -68,7 +69,7 @@ three of them would have put wrong numbers on air.
 ### Narration
 
 > Is Act ka janam-din note kar lijiye, kyunki exam mein dates poochhi jaati hain — aur ek date
-> mein ek chhota sa trap bhi hai.
+> par log aksar atak jaate hain.
 >
 > Bill Lok Sabha mein pesh hua **23 December 2004** ko. Lok Sabha ne use paas kiya **11 May 2005**
 > ko, aur Rajya Sabha ne **agle hi din** — **12 May 2005** ko. Presidential assent mila **15 June
@@ -77,27 +78,33 @@ three of them would have put wrong numbers on air.
 >
 > Lekin poori law lagu hui **12 October 2005** ko. Yeh Act ke poori tarah commence hone ka din hai.
 >
-> Aur ab trap. Aap padhenge ki yeh "enactment ke **120ve din**" hua. Arithmetically dekhein toh 15
-> June se 12 October tak **119 din** hote hain. "120van din" tabhi banta hai jab aap **15 June ko
-> hi pehla din ginein**. Dono baatein sahi hain — bas counting inclusive hai. Isliye safe line yeh
-> hai: *"12 October 2005 — counting the date of enactment as day one, the 120th day."*
+> Aur ab counting ka sawaal, jo aksar galat samjha jaata hai. 15 June se 12 October tak
+> **arithmetically 119 din** hote hain. Lekin Act khud kya kehta hai? **Section 1(3)** — aur yeh line
+> poori padhna zaroori hai:
 >
-> Aur ek aur precision, jo zyada log miss karte hain: **Section 1(3) khud 120 din nahi bolta.**
-> Section 1(3) kehta hai ki Act us date ko lagu hoga jo **Central Government notification se
-> appoint kare**, aur proviso yeh bhi allow karta hai ki **alag-alag provisions ke liye alag-alag
-> dates** ho sakti hain. 12 October ki date usi power ke tehat aayi. Act ke andar jo "120 din"
-> likha hai, woh Section 4(1) mein hai — proactive disclosure ke liye — aur Section 5(1) mein **100
-> din** hain PIO designate karne ke liye. In teen ko mix mat kijiye.
+> *"The provisions of sub-section (1) of section 4, sub-sections (1) and (2) of section 5, sections
+> 12, 13, 15, 16, 24, 27 and 28 shall come into force at once, and **the remaining provisions of this
+> Act shall come into force on the one hundred and twentieth day of its enactment**."*
 >
-> Ab woh partial commencement. Kuch sections **15 June 2005 ko hi turant** lagu ho gaye:
-> **4(1), 5(1), 5(2), 12, 13, 15, 16, 24, 27 aur 28**. Logic samajhiye — pehle machinery khadi
-> karo. PIO aur APIO appoint ho, Central aur State Information Commissions banein, rules banne ki
-> taqat mile, exemptions ka framework set ho. **Baaki sab — jismein woh section bhi hai jisse
-> citizen ko information maangne ka substantive right milta hai — 12 October 2005 ko aaya.**
+> Yaani Act khud "120va din" bolta hai. Toh 12 October bilkul sahi hai — counting inclusive hai,
+> enactment ka din hi pehla din. Yahan koi discrepancy nahi hai, bas isliye log confuse hote hain kyunki
+> woh 119 gin lete hain.
 >
-> Yaani teen mahine tak India mein ek aisa transparency law statute book par tha jiske tehat
-> information maangi hi nahi ja sakti thi. Yeh detail chhoti lagti hai, lekin yeh batati hai ki
-> law ka design kya tha: pehle institution, phir right.
+> Aur doosri baat jo Section 1(3) clear kar deta hai: **partial commencement kisi alag notification se
+> nahi aayi — woh Section 1(3) mein hi likhi hai.** Woh das sections — **4(1), 5(1), 5(2), 12, 13, 15,
+> 16, 24, 27, 28** — "shall come into force **at once**". Logic samajhiye: pehle machinery khadi karo.
+> PIO aur APIO appoint ho, Central aur State Information Commissions banein, rules banne ki taqat
+> mile, exemptions ka framework set ho. **Baaki sab — jismein woh section bhi hai jisse citizen ko
+> information maangne ka substantive right milta hai — 12ve din… maaf kijiye, 120ve din, yaani 12
+> October 2005 ko aaya.**
+>
+> Yaani lagbhag chaar mahine tak India mein ek aisa transparency law statute book par tha jiske tehat
+> information maangi hi nahi ja sakti thi. Yeh detail chhoti lagti hai, lekin yeh batati hai ki law ka
+> design kya tha: pehle institution, phir right.
+>
+> Ek aur triad yaad rakhiye, kyunki exam mein yahi mix hota hai. **Section 1(3)** — commencement, 120va
+> din. **Section 4(1)(b)** — proactive disclosure, **120 din** ke andar publish. **Section 5(1) aur
+> 5(2)** — PIO aur APIO designate, **100 din** ke andar. Do alag 120 aur ek 100 — inhe alag rakhiye.
 
 ### On-screen data card
 
@@ -108,27 +115,37 @@ RTI ACT, 2005 — TIMELINE
   12 May 2005   Passed, Rajya Sabha
   15 Jun 2005   Presidential assent (Dr. A.P.J. Abdul Kalam) — Act No. 22 of 2005
   21 Jun 2005   Published, Gazette of India
-  15 Jun 2005   IMMEDIATE: ss. 4(1), 5(1), 5(2), 12, 13, 15, 16, 24, 27, 28
-  12 Oct 2005   FULL COMMENCEMENT (all remaining provisions)
+  15 Jun 2005   IMMEDIATE (per s.1(3) itself): s.4(1), s.5(1), s.5(2),
+                ss.12, 13, 15, 16, 24, 27, 28
+  12 Oct 2005   FULL COMMENCEMENT — "the one hundred and twentieth day
+                of its enactment", per s.1(3)
 
-  COUNTING NOTE: 15 Jun → 12 Oct = 119 days elapsed.
-  "120th day" only if the enactment date is counted as day 1.
+  COUNTING: 15 Jun → 12 Oct is 119 days elapsed. The Act's own formula is
+  the 120th day, i.e. enactment day counts as day one. 12 October is correct.
 
-  DEADLINE TRIAD — do not confuse:
-    s.1(3)   commencement set by Central Govt notification (no number in the section)
-    s.4(1)   120 days — proactive disclosure
-    s.5(1)   100 days — designate PIOs / APIOs
+  THE THREE NUMBERS — do not confuse:
+    s.1(3)     commencement of the remaining provisions = 120th day
+    s.4(1)(b)  publish the s.4 disclosure package within 120 days
+    s.5(1),(2) designate PIOs and APIOs within 100 days
 ```
 
 ### Accuracy notes (recorder's footnote)
 
-- Dates, Act number and the immediate-effect section list: **CONFIRMED** against two independent
-  legal sources (see register, rows L1–L4).
+- **The whole of segment T0 now rests on the primary text.** s.1(3), s.2(e), s.2(f), s.3, s.4(1),
+  s.5(1)–(5), s.6, s.7, s.8, s.9, s.10, s.11, s.12, s.13, s.15, s.16, s.18, s.19, s.20, s.21–s.31
+  and the Second Schedule were read in full this session from the Central Information Commission's
+  own copy of the Act — `cic.gov.in/sites/default/files/RTI-Act_English.pdf`, Act No. 22 of 2005,
+  diglot edition, "as modified up to 1st February 2011". Every quoted line in this patch has been
+  checked against that document. Register section **N** carries the row-by-row list.
+- Dates, Act number and the immediate-effect section list: **CONFIRMED** — and the immediate-effect
+  list is *in* s.1(3), not in a separate notification.
 - The 119-vs-120 arithmetic: **computed** in this session — 15 June 2005 + 120 days = 13 October
-  2005, so 12 October is day 119 exclusive / day 120 inclusive.
-- Exact wording of s.1(3): **not re-fetched in this session.** The formulation quoted above is the
-  standard commencement clause used in the Act. Do a 30-second eyeball against the printed Act
-  before recording the line "Section 1(3) khud 120 din nahi bolta."
+  2005, so 12 October is day 119 exclusive and day 120 inclusive. Since the Act itself says "the one
+  hundred and twentieth day of its enactment", the inclusive reading is the statutory one and
+  12 October is right.
+- One caution on the CIC copy: it is the edition as modified up to **1 February 2011**, so the
+  s.8(1)(j) text in it is the **pre-DPDP original**. That original is quoted deliberately in
+  `ADD-36` — the amendment came later, via s.44(3) of the DPDP Act, 2023.
 
 ---
 
@@ -177,6 +194,23 @@ RTI ACT, 2005 — TIMELINE
 > hissa hai. **Teen** — aur yeh sabse practical hai — **fee, word-limit aur ID ki demand
 > Section 19 ke tehat appealable grounds hain.** Agar koi department bina statutory basis ke ₹10 se
 > zyada maange, ya word limit par reject kare, toh woh refusal appeal mein challenge hota hai.
+>
+> Do cheezein aur, jo primary text padhne par saamne aati hain.
+>
+> **Pehli — Section 29(2).** *"Every rule made under this Act by a State Government shall be laid,
+> as soon as may be after it is notified, **before the State Legislature**."* Yaani Maharashtra ke
+> rules ko Vidhan Sabha ke saamne rakhna zaroori tha. Yeh prior approval nahi hai — rules notify
+> hote hi lagu ho jaate hain — lekin ek **parliamentary check** hai jo activists istemaal kar sakte
+> hain: MLA se poochhiye ki rules table hue ya nahi, aur agar hue toh unpar kya discussion hui.
+>
+> **Doosri — appeal fee ka sawaal khud contestable hai.** Section 27(2) ginti se batata hai ki rules
+> kin matters par ban sakte hain: s.4(4) ke media ki cost, **s.6(1) ki application fee**, **s.7(1) aur
+> 7(5) ki information fee**, officers ki salaries, aur **s.19(10) ke tehat Commission ki appeal
+> decide karne ki procedure**. Dhyan dijiye — **appeal file karne par applicant se fee lene ki koi
+> express power is list mein nahi hai.** Yaani ₹50 aur ₹100 ki appeal fees — aur arguably purani ₹20
+> bhi — Section 27(2) ke enumerated subject-matter ke bahar hone ka argument banta hai. Yeh main ek
+> **argument** ki tarah pesh kar raha hoon, settled law ki tarah nahi; is point par mujhe koi court
+> ruling nahi mila. Lekin appeal likhte waqt yeh uthane layak point hai.
 
 **Data card**
 
@@ -193,7 +227,13 @@ MAHARASHTRA RTI RULES, 2026
   Stayed        2 Jul 2026 (CM Fadnavis directive; order by SIC secretary R. Falle)
   Rolled back   7 Jul 2026 — application fee back to ₹10
   TODAY         ₹10 application · ₹20 appeal  (₹20 = the pre-2026 rate, NOT new)
-  Legal anchor  s.27 (state rule-making) vs s.6(2) (no reason, no personal detail)
+  Legal anchors s.27(2)(b),(c) — rules may set the s.6(1) application fee and the
+                s.7(1)/(5) information fee. NO express power to charge for
+                filing an appeal → the ₹50/₹100 (and arguably the old ₹20)
+                appeal fee is contestable. [argument, not settled law]
+                s.6(2) — no reason, no personal details required
+                s.29(2) — every State rule must be laid before the State
+                Legislature as soon as may be after it is notified
 ```
 
 ---
@@ -289,19 +329,27 @@ MICRO-DILUTIONS — NLS Forum, Feb 2026 (doi.org/10.55496/KDPT2827)
 > kehta hai: *"GO Ms. No. 57 … stands revoked."* Government ne publicly yeh nahi bataya ki order
 > pehle kyun liya gaya tha.
 >
-> Do technical points, kyunki yahi exam-relevant hain.
+> Teen technical points, kyunki yahi exam-relevant hain.
 >
-> **Pehla:** exemption **absolute nahi hoti**. Section 24 ke tehat bhi, **corruption ke allegations
-> aur human-rights violations** se related information ko exclude nahi kiya ja sakta. Human-rights
-> violations wali information ke liye Act mein additional condition hai — aisi information State
-> Human Rights Commission ke through, uski approval se, di jaati hai. Toh even agar woh order rehta,
-> custodial death ya torture se judi information poori tarah band nahi hoti — lekin rasta lamba aur
-> conditional ho jaata.
+> **Pehla:** Section 24(4) mein **koi judicial pre-check nahi hai** — state government notification
+> jaari karti hai, gazette mein chhapta hai, aur exemption lagu. Lekin ek safeguard hai jo aksar miss
+> hota hai: **Section 24(5)** kehta hai ki *"Every notification issued under sub-section (4) shall be
+> laid before the State Legislature."* Yaani har aisi notification Vidhan Sabha ke saamne rakhni
+> padti hai. Yeh ek **post-hoc parliamentary check** hai — prior approval nahi, isliye order turant
+> lagu ho jaata hai — lekin record par aane ki ek formal zaroorat hai. Tamil Nadu ke case mein order
+> chhah din mein revoke ho gaya, isliye yeh laying ka sawaal kabhi aaya hi nahi.
 >
-> **Doosra:** Section 24(4) mein **koi judicial pre-check nahi hai**. State government notification
-> jaari karti hai, gazette mein chhapta hai, aur exemption lagu. Rokne ka practical tareeka **politics
-> aur litigation** hai, koi automatic safeguard nahi. Isliye yeh episode ek warning hai: 24(4) ka
-> khatra theoretical nahi, operational hai.
+> **Doosra:** exemption **absolute nahi hoti**. Section 24(4) ke pehle proviso mein saaf likha hai ki
+> **corruption ke allegations aur human-rights violations** se related information exclude nahi ki ja
+> sakti. Toh even agar woh order rehta, corruption se judi information band nahi hoti.
+>
+> **Teensra:** lekin human-rights violations wali information ke liye ek **extra condition** hai —
+> doosra proviso: woh information **sirf State Information Commission ki approval ke baad** milegi,
+> aur Section 7 ke despite **45 din** ke andar. Yaani rasta khula hai, par lamba aur conditional.
+>
+> Practically iska matlab: custodial death ya torture ki information poori tarah band nahi hoti —
+> lekin aam RTI ki jagah ek alag, 45-din wala, Commission-approved rasta ban jaata. Aur exactly isliye
+> woh order itna contentious tha.
 
 **Data card**
 
@@ -728,6 +776,70 @@ ADR v. UNION OF INDIA — 15 FEB 2024
 
 ---
 
+### ADD-44 — Six provisions of the Act that almost nobody invokes
+**Priority: P2** · **Runtime: ~2 min** · **Insert:** new block, after `ADD-43`.
+
+> Primary text poori padhne par kuch aise provisions milte hain jo bahut kam istemaal hote hain,
+> lekin applicant ke liye bahut taqatwar hain.
+>
+> **Ek — Section 7(6): der hui toh information FREE.** *"the person making request for the
+> information shall be provided the information **free of charge** where a public authority fails to
+> comply with the time limits specified in sub-section (1)."* Yaani agar PIO 30 din (ya third-party
+> case mein 40 din) chuk jaata hai, toh aapko fee dene ki zaroorat hi nahi. Bahut se PIO iska zikr
+> hi nahi karte. Late reply aaye toh fee maangne par seedha yeh section likhiye.
+>
+> **Do — Section 7(2): jawab na dena bhi ek jawab hai.** Agar PIO time limit ke andar decision na de,
+> toh use **"deemed to have refused the request"** maana jaata hai. Yaani chuppi bhi ek refusal hai —
+> aur refusal par appeal banti hai. Aapko 30 din poore hone ka intezaar karna hai, uske baad seedha
+> First Appeal.
+>
+> **Teen — Section 18(4): Commission ke saamne koi record nahi roka ja sakta.** *"the Commission may,
+> during the inquiry of any complaint under this Act, examine **any record** to which this Act
+> applies which is under the control of the public authority, and **no such record may be withheld
+> from it on any grounds**."* Yeh line bahut kam log jaante hain. Section 8 ke exemptions applicant
+> ke against lagte hain — **Commission ke against nahi.** Commission record dekh sakta hai, chahe
+> woh classified ho.
+>
+> **Chaar — Section 20(1) ka doosra proviso: burden PIO par.** *"the burden of proving that he acted
+> reasonably and diligently shall be on the Central Public Information Officer or the State Public
+> Information Officer."* Aur **Section 19(5)** appeal mein onus PIO par daalta hai. Yaani aapko yeh
+> saabit nahi karna ki refusal galat tha — PIO ko saabit karna hai ki refusal sahi tha.
+>
+> **Paanch — Section 8(3): bees saal purani information.** *"Subject to the provisions of clauses
+> **(a), (c) and (i)** of sub-section (1), any information relating to any occurrence, event or matter
+> which has taken place … **twenty years** before the date on which any request is made … shall be
+> provided."* Yaani 20 saal purani information **milni chahiye** — sirf teen clauses chhootte hain.
+> Yeh historical aur accountability research ke liye ek bahut bada, bilkul unused darwaza hai.
+>
+> **Aur chhah — Section 22 aur 23.** Section 22: RTI Act ka **overriding effect** hai — Official
+> Secrets Act, 1923 aur **kisi bhi** doosre law ke despite. Isliye "yeh record Official Secrets Act
+> ke under classified hai" ek valid refusal nahi hai. Aur Section 23: kisi civil court ka
+> jurisdiction nahi hai — order ke against sirf **isi Act ke under appeal** chalti hai. Yaani aapka
+> rasta Commission hai, civil suit nahi.
+>
+> In cheh ko ek jagah note kar lijiye — practical RTI practice mein yahi sabse zyada leverage dete
+> hain, aur inmein se zyada-tar ka zikr tak nahi hota.
+
+**Data card**
+
+```
+SIX UNDER-USED PROVISIONS
+ s.7(6)    authority misses the time limit → information FREE of charge
+ s.7(2)    no decision within the period = "deemed to have refused"
+ s.18(4)   the Commission may examine ANY record; "no such record may
+           be withheld from it on any grounds" — s.8 binds applicants,
+           not the Commission
+ s.20(1)   2nd proviso — burden on the PIO to prove he acted reasonably
+           and diligently   [with s.19(5) — onus on the PIO in appeal]
+ s.8(3)    information 20 years old SHALL be provided, subject only to
+           s.8(1)(a), (c) and (i)   ← three clauses, not four; no (h)
+ s.22      overriding effect over the Official Secrets Act 1923 and any
+           other law for the time being in force
+ s.23      no civil court jurisdiction — appeal under this Act only
+```
+
+---
+
 ## 4. New practical segments
 
 ### BONUS-20 — How to draft an application that survives
@@ -937,7 +1049,7 @@ FIRST APPEAL — DRAFTING TO WIN
 |---|---|
 | **P02** (§4(1)(a)) | After the cataloguing line, add: *"Aur ab reality check. Section 4(1)(b) ke tehat yeh sab **enactment ke 120 din** ke andar publish hona tha — yaani 2005 ke end tak. Bees saal baad bhi zyada-tar public authorities ke paas na current catalogue hai, na updated index, na properly computerised records. Yehi wajah hai ki RTI applications aksar 'record available nahi hai' par atak jaati hain — problem PIO ki nahi, uske peeche ka record-system hai."* |
 | **P03** (§5(1), APIO) | After the 100-day mention: *"Do din yaad rakhiye — Section 5(1) kehta hai PIO **100 din** ke andar designate ho, Section 4(1)(b) ke disclosure ke liye **120 din**. Aur Section 5(4) ke 'deemed PIO' ka rule practical mein kamzor hai: APIO application forward karta hai, lekin delay ke liye accountability fix karna Commission mein aksar nahi hota — jab tak applicant khud us point ko appeal mein na uthaye."* |
-| **P05** (§7(1) proviso) | Add: *"Ek precision: yeh 48-ghante ka rule **automatic nahi** hai. Yeh tabhi chalega jab **PIO satisfied ho** ki information **life ya liberty** se related hai. Yeh ek subjective threshold hai — isliye application mein khud likhiye ki information kis tarah life ya liberty se judi hai. Sirf 'urgent' likh dene se 48-ghante ka rule trigger nahi hota."* |
+| **P05** (§7(1) proviso) | Add: *"Ek precision: proviso kehta hai — 'where the information sought for **concerns the life or liberty of a person**, the same shall be provided within forty-eight hours.' Yeh test statute mein objective hai, 'PIO satisfied ho' aisa nahi likha. Lekin practically faisla PIO hi leta hai ki information life-liberty se judi hai ya nahi. Isliye application mein khud **ek line mein likhiye** ki information kis tarah life ya liberty se related hai. Sirf 'urgent' likh dene se 48-ghante ka rule trigger nahi hota."* |
 | **P09** (§12(6) disqualifications) | Add: *"Ek cheez Section 12(6) nahi batati — selection kaise hoti hai. Section 12(3) ki committee mein **Leader of the Opposition** bhi hote hain, aur 2025–26 mein humne dekha ki us seat se **formal dissent** bhi aa sakta hai. Uski poori kahani `ADD-37` mein."* |
 | **P10** (§15(3) State committee) | Add: *"Aur state committee ki composition ka practical asar bhi hota hai — kyunki state government ke paas Section 24(4) ki taqat bhi hoti hai. Tamil Nadu ne September 2026 mein usi taqat ka istemaal ek poore line department ko exempt karne ke liye kiya. `ADD-35` mein."* |
 | **P12** (§19(8)) | Add: *"Do clauses ko alag rakhiye. **19(8)(a)** remedial powers hain — information, refund, penalty, directions. **19(8)(b)** compensation hai — aur uske liye **actual loss ya detriment** dikhana padta hai. Late reply apne aap mein compensation ka ground nahi. `ADD-42` mein."* |
@@ -964,7 +1076,9 @@ FIRST APPEAL — DRAFTING TO WIN
 
 ## 6. ⚠️ Corrections to the review itself
 
-Seven claims in the review did not survive checking. Three would have put wrong numbers on air.
+Six claims in the review did not survive checking — three would have put wrong numbers on air.
+C7 below was **mine**, and it was wrong; it is kept in the table, struck through, so the record shows
+the correction was tested rather than assumed.
 
 | # | The review said | What checking shows | Severity |
 |---|---|---|---|
@@ -974,17 +1088,28 @@ Seven claims in the review did not survive checking. Three would have put wrong 
 | **C4** | *"KIC imposed ₹10.38 crore in penalties on **over 3,000 PIOs**"* | ₹10.38 crore was imposed on **10,843 PIOs**. ₹2.70 crore was recovered **from 3,084 PIOs**. The review merged the penalty count with the recovery count. | **Medium** — the ratio is the whole point of the segment. |
 | **C5** | *"the 2026 righttoinformation.wiki Section 24 page states the Schedule contains '24 bodies'. Flag for verification."* | **Resolved — the script was right.** CERT-In was added at **serial number 27** by a DoPT notification under s.24(2) in Nov 2023, joining **26** existing organisations. The Second Schedule stands at **27**. Keep "sattais". | **Medium** — would have replaced a correct fact with a wrong one. |
 | **C6** | *"Police initially described it [the Simranjit Singh killing] as a financial dispute"* | Police did **not** say that. DIG Naveen Singla and SSP Gaurav Toora said the motive was **unconfirmed**, and that both an **RTI-related dispute** and **personal enmity** were being examined. | **Medium** — mischaracterises an on-record police statement. |
-| **C7** | *"Full Commencement: 12 October 2005 — the 120th day from enactment, **as per Section 1(3)**"* | Two problems. (a) Arithmetically, 12 Oct is **119 days** after 15 Jun — it is the 120th day only counting the enactment date as day 1. (b) **s.1(3) does not prescribe 120 days** — it lets the Central Government appoint the commencement date by notification, with a proviso allowing different dates for different provisions. The "120 days" that *is* in the Act sits in **s.4(1)** (proactive disclosure); **s.5(1)** says **100 days** for designating PIOs. | **Low–Medium** — but it is the kind of thing an examiner pounces on. |
+| **C7** | ~~*"Full Commencement: 12 October 2005 — the 120th day from enactment, as per Section 1(3)"*~~ **WITHDRAWN — the review was right and my objection was wrong.** | I objected that s.1(3) does not prescribe 120 days. **It does.** The primary text reads: *"…sections 12, 13, 15, 16, 24, 27 and 28 shall come into force at once, and the remaining provisions of this Act shall come into force on the one hundred and twentieth day of its enactment."* I had assumed the standard "such date as the Central Government may appoint" commencement clause, which is **not** what the RTI Act uses. Keep the review's line. | **N/A — my error, not the review's.** |
 
-### Two statutory errors caught in my own draft during verification
+**The one arithmetic point that does survive** (and belongs in `T0`, not as a correction to the
+review): 15 June → 12 October is **119 days elapsed**. The Act's own formula is the **120th day**, so
+the enactment day counts as day one and 12 October is correct. Say it as an explanation, not as a
+caveat.
 
-Both were in the practical segments and both would have been wrong on air. They are corrected above;
-listed here so you know they were checked, not assumed.
+**Two related precision points that are mine, not the review's:** the "120 days" that appears
+elsewhere in the Act is in **s.4(1)(b)** (proactive disclosure), and **s.5(1)–(2)** says **100 days**
+for designating PIOs and APIOs. Three different numbers, three different sections — that triad is
+worth stating on air.
+
+### Three errors caught in my own draft during verification
+
+All three would have been wrong on air. Listed here so you know they were checked against the
+primary text, not assumed.
 
 | Where | The wrong version | The correct law |
 |---|---|---|
 | `BONUS-21`, third-party refusal | "s.11(1) proviso: trade ya commercial secrets hone par **bhi** disclosure ho sakta hai agar larger public interest ho" — i.e. the override beats the secrets exception. | **Reversed.** The proviso reads: *"**except** in the case of trade or commercial secrets protected by law, disclosure may be allowed if the public interest in disclosure outweighs in importance any possible harm or injury to the interests of such third party."* The override exists, but law-protected trade and commercial secrets are the **one exception** to it. |
-| `BONUS-22`, first-appeal strategy | "s.8(2) applies apart from s.8(1)(a), (c), (h), (i) and its proviso" | **No such carve-out exists.** s.8(2) reads *"notwithstanding … **any** of the exemptions permissible in accordance with sub-section (1)"* — it applies to **every** s.8(1) clause. This also makes it the sole remaining disclosure route for personal information now that s.8(1)(j)'s own override is gone. |
+| `BONUS-22`, first-appeal strategy | "s.8(2) applies apart from s.8(1)(a), (c), (h), (i) and its proviso" | **No such carve-out exists in s.8(2).** It reads *"notwithstanding … **any** of the exemptions permissible in accordance with sub-section (1)"* — it applies to **every** s.8(1) clause. This also makes it the sole remaining disclosure route for personal information now that s.8(1)(j)'s own override is gone. **Where the confusion comes from:** the carve-out list belongs to **s.8(3)** — the twenty-year rule — which is *"Subject to the provisions of clauses **(a), (c) and (i)** of sub-section (1)"*. Note it is three clauses, not four; **(h) is not in it**. s.8(2) and s.8(3) are different provisions doing different jobs. |
+| `T0`, the legislative timeline | "s.1(3) does not itself prescribe 120 days — it lets the Central Government appoint the date by notification" | **Wrong, and withdrawn as C7.** s.1(3) is self-executing and says the remaining provisions *"shall come into force on the one hundred and twentieth day of its enactment"*, and it carries the immediate-effect list itself. The RTI Act does **not** use the standard delegated-commencement formula. |
 
 `BONUS-21` also now carries the correct s.11 clock: notice **within 5 days** of the request
 [s.11(1)] → third party gets **10 days** to submit [s.11(2)] → PIO decides **within 40 days** of the
@@ -1048,10 +1173,11 @@ either dropped above or read with an explicit hedge.
 | `ADD-41` s.7(9) | ~0:55 |
 | `ADD-42` s.19(8)(b) | ~0:45 |
 | `ADD-43` electoral bonds | ~1:00 |
+| `ADD-44` six under-used provisions | ~2:00 |
 | `BONUS-20` filing | ~1:30 |
 | `BONUS-21` rejections | ~1:40 |
 | `BONUS-22` first appeal | ~1:20 |
-| **New total** | **~21:25** |
+| **New total** | **~23:25** |
 
 **Suggested order in the final script:** `T0` in P01 → `BONUS-20/21/22` after P04 (practical block
 early, while attention is high) → `ADD-33`, `ADD-34` after the fee/Section-27 material →
@@ -1066,8 +1192,9 @@ bonus tail.
 
 ## 9. Recording-day checklist
 
-- [ ] `T0` — say "counting the enactment date as day one" before "120th day".
-- [ ] `T0` — do not say "Section 1(3) gives 120 days".
+- [ ] `T0` — s.1(3) **does** say "the one hundred and twentieth day". Quote it; don't hedge it.
+- [ ] `T0` — explain 119 elapsed days as arithmetic, not as a flaw in the Act.
+- [ ] `T0` — three numbers, three sections: s.1(3) 120th day · s.4(1)(b) 120 days · s.5(1)–(2) 100 days.
 - [ ] `P14` — Second Schedule = **27**. Not 24.
 - [ ] `ADD-33` — Maharashtra today is ₹10 + ₹20; ₹20 is the old rate, not a survivor of 2026.
 - [ ] `ADD-37` — **do not name** the three alternative candidates.
