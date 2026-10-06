@@ -1,0 +1,27 @@
+{
+ "batch": "B2",
+ "title": "Architecture: three layers",
+ "query": "architecture terminal TUI gateway agent runtime tools loop state sessions SQLite FTS5 search",
+ "evidence": [
+  {
+   "source": "AGENTS.md",
+   "score": 0.173,
+   "excerpt": "Hermes is a personal AI agent that runs the same agent core across a CLI, a messaging\ngateway (Telegram, Discord, Slack, ~20 platforms), a TUI, and an Electron desktop app. It\nlearns across sessions (memory + skills), delegates to subagents, runs scheduled jobs, and\ndrives a real terminal and browser. It is extended primarily through **plugins and skills**,\nnot by growing the core.\n\nTwo invariants shape almost every design decision and are the lens for reviewing any change:"
+  },
+  {
+   "source": "README.md",
+   "score": 0.1682,
+   "excerpt": "That logs you in via OAuth, sets Nous as your provider, and turns on the Tool Gateway. Check what's wired up any time with `hermes portal info`. Full details on the [Tool Gateway docs page](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway).\n\nYou can still bring your own keys per-tool whenever you want — the gateway is per-backend, not all-or-nothing.\n\n---\n\n## CLI vs Messaging Quick Reference\n\nHermes has two entry points: start the terminal UI with `hermes`, or run the gateway and talk to it from Telegram, Discord, Slack, WhatsApp, Signal, or Email. Once you're in a c"
+  },
+  {
+   "source": "CONTRIBUTING.md",
+   "score": 0.1587,
+   "excerpt": "```\nhermes-agent/\n├── run_agent.py              # AIAgent facade (~1.5k LOC) — the turn loop lives in agent/conversation_loop.py + agent/turn_*.py\n├── cli.py                    # HermesCLI class — interactive CLI orchestrator (~4.6k LOC + hermes_cli/cli_*_mixin.py)\n├── model_tools.py            # Tool orchestration (thin layer over tools/registry.py)\n├── toolsets.py               # Tool groupings and presets (hermes-cli, hermes-telegram, etc.)\n├── hermes_state.py           # SessionDB facade (~1.4k LOC); implementation in hermes_state_*.py (21 siblings) — FTS5 search, session titles\n├── batch_"
+  },
+  {
+   "source": "FACTS.md",
+   "score": 0.1556,
+   "excerpt": "FACTS (curated from repo tree):\n- Messaging platforms: Telegram, Discord, Slack, WhatsApp, Signal, CLI/TUI, Email, Home Assistant.\n  Gateway directory gateway/platforms holds signal.py, bluebubbles.py, weixin.py, qqbot, webhook.py, api_server.py.\n- Terminal backends (7): local, Docker, SSH, Singularity, Modal, Daytona, Vercel Sandbox.\n  Serverless Daytona/Modal hibernate when idle, wake on demand, cost nearly nothing between sessions.\n- Tools: 40+ tools, toolset system, terminal backends doc reference.\n- Memory/learning: agent-curated memory with periodic nudges, autonomous skill creation afte"
+  }
+ ]
+}

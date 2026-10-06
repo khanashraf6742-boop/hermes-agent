@@ -1,0 +1,293 @@
+1
+00:00:00,700 --> 00:00:04,872
+Namaste, and welcome to the complete Hermes
+Agent explainer.
+
+2
+00:00:04,872 --> 00:00:10,968
+Hermes Agent, built by Nous Research, is the
+self-improving A I agent with a built-in learning loop.
+
+3
+00:00:10,968 --> 00:00:21,804
+It creates skills from experience, improves them while you work, reminds itself to save what
+matters, searches its own past conversations, and builds a deeper model of you in every session.
+
+4
+00:00:21,804 --> 00:00:23,467
+Here is the big picture.
+
+5
+00:00:23,467 --> 00:00:31,278
+You can talk to it from the terminal, or from Telegram, Discord,
+Slack, WhatsApp, and Signal, while it actually runs on a cloud machine.
+
+6
+00:00:31,278 --> 00:00:38,768
+It works with almost any model you choose, from Nous Portal to
+OpenRouter and OpenAI, and you can switch models with one command.
+
+7
+00:00:38,768 --> 00:00:48,222
+In this video, we will unpack the architecture, the learning loop, the platforms, the
+automations, and the two-minute quick start, step by step, with tables and diagrams.
+
+8
+00:00:48,222 --> 00:00:49,276
+Let us begin.
+
+9
+00:00:50,800 --> 00:00:52,370
+Let us open the hood.
+
+10
+00:00:52,370 --> 00:00:53,780
+Hermes has three layers.
+
+11
+00:00:53,780 --> 00:00:55,966
+Layer one is the interface layer.
+
+12
+00:00:55,966 --> 00:01:08,062
+You either type in a full terminal interface, with multi-line editing, slash commands, history,
+and streaming tool output, or you message it from chat apps through a single gateway process.
+
+13
+00:01:08,062 --> 00:01:10,779
+Layer two is the agent runtime.
+
+14
+00:01:10,779 --> 00:01:12,107
+This is the brain.
+
+15
+00:01:12,107 --> 00:01:23,860
+It runs the conversation loop, calls more than forty tools, delegates work to isolated
+sub-agents, compresses old context so long sessions never break, and tracks usage and cost.
+
+16
+00:01:23,860 --> 00:01:26,179
+Layer three is the state layer.
+
+17
+00:01:26,179 --> 00:01:34,522
+Every session, message, and memory is stored in a local database with
+full-text search, so the agent can recall anything across sessions.
+
+18
+00:01:34,522 --> 00:01:35,885
+Follow one message.
+
+19
+00:01:35,885 --> 00:01:37,734
+You send a text on Telegram.
+
+20
+00:01:37,734 --> 00:01:46,794
+The gateway routes it to your session, the runtime thinks, calls
+tools, and replies, and the state layer saves everything for next time.
+
+21
+00:01:46,794 --> 00:01:49,144
+One brain, many doors, total memory.
+
+22
+00:01:50,670 --> 00:01:56,503
+This is the heart of Hermes, the closed
+learning loop, and it has five moving parts.
+
+23
+00:01:56,503 --> 00:01:59,187
+Part one, agent-curated memory with periodic
+nudges.
+
+24
+00:01:59,187 --> 00:02:06,518
+The agent itself decides what is worth remembering, and the
+system nudges it to persist knowledge before it is lost.
+
+25
+00:02:06,518 --> 00:02:09,400
+Part two, autonomous skill creation.
+
+26
+00:02:09,400 --> 00:02:16,249
+After a complex task, Hermes writes a reusable skill from what
+it just learned, so it never solves the same problem twice.
+
+27
+00:02:16,249 --> 00:02:19,686
+Part three, skills that self-improve during
+use.
+
+28
+00:02:19,686 --> 00:02:22,639
+Every time a skill runs, the agent refines
+it.
+
+29
+00:02:22,639 --> 00:02:25,597
+Part four, session search with
+summarisation.
+
+30
+00:02:25,597 --> 00:02:31,034
+Full-text search finds old conversations, and the
+model summarises them for cross-session recall.
+
+31
+00:02:31,034 --> 00:02:40,307
+Part five, a deepening model of you, powered by Honcho, an open-source
+user-modelling system, plus compatibility with the open agentskills dot io standard.
+
+32
+00:02:40,307 --> 00:02:43,903
+Memory writes, skills learn, recall
+compounds.
+
+33
+00:02:43,903 --> 00:02:47,094
+That is why Hermes gets smarter the longer
+you use it.
+
+34
+00:02:48,600 --> 00:02:52,099
+Hermes lives where you do, and runs where
+you want.
+
+35
+00:02:52,099 --> 00:02:53,771
+First, where you talk.
+
+36
+00:02:53,771 --> 00:02:59,565
+One gateway process serves Telegram, Discord, Slack,
+WhatsApp, Signal, and the command line together.
+
+37
+00:02:59,565 --> 00:03:06,177
+It transcribes your voice memos, and your conversation
+continues seamlessly even if you switch apps.
+
+38
+00:03:06,177 --> 00:03:06,677
+Now, where it runs.
+
+39
+00:03:06,677 --> 00:03:09,269
+Hermes has seven terminal backends.
+
+40
+00:03:09,269 --> 00:03:17,776
+Local for your own machine, Docker and SSH for servers, Singularity
+for clusters, and Modal, Daytona, and Vercel Sandbox for the cloud.
+
+41
+00:03:17,776 --> 00:03:19,982
+The serverless options are special.
+
+42
+00:03:19,982 --> 00:03:26,774
+Your agent's environment hibernates when idle and wakes
+on demand, so it costs almost nothing between sessions.
+
+43
+00:03:26,774 --> 00:03:32,975
+That means one setup choice covers everything,
+from a five-dollar V P S to a full G P U cluster.
+
+44
+00:03:32,975 --> 00:03:35,736
+Chat from your phone, compute in the cloud.
+
+45
+00:03:37,230 --> 00:03:39,008
+Now the power features.
+
+46
+00:03:39,008 --> 00:03:41,880
+Delegation, automation, and research.
+
+47
+00:03:41,880 --> 00:03:42,380
+Delegation first.
+
+48
+00:03:42,380 --> 00:03:48,650
+Hermes can spawn isolated sub-agents for parallel
+workstreams, so three tasks finish in the time of one.
+
+49
+00:03:48,650 --> 00:03:58,682
+It can also write Python scripts that call its own tools through R P C, collapsing
+long multi-step pipelines into a single step that costs almost zero context.
+
+50
+00:03:58,682 --> 00:04:00,099
+Automation next.
+
+51
+00:04:00,099 --> 00:04:10,691
+A built-in cron scheduler takes plain-English schedules, like a daily report, a nightly
+backup, or a weekly audit, and delivers the result to any platform, fully unattended.
+
+52
+00:04:10,691 --> 00:04:12,076
+Finally, research.
+
+53
+00:04:12,076 --> 00:04:21,116
+Hermes supports batch trajectory generation and trajectory compression,
+producing training data for the next generation of tool-calling models.
+
+54
+00:04:21,116 --> 00:04:25,364
+Parallel workers, scheduled habits, and a
+data flywheel for researchers.
+
+55
+00:04:25,364 --> 00:04:26,886
+Let us get you installed.
+
+56
+00:04:28,400 --> 00:04:37,329
+On Linux, macOS, W S L two, or Termux, you run one install command from the
+Hermes docs site, then reload your shell and type hermes to start chatting.
+
+57
+00:04:37,329 --> 00:04:44,365
+On Windows, there is a native PowerShell installer that
+bundles everything, including Python, Node, and a portable Git.
+
+58
+00:04:44,365 --> 00:04:46,789
+Day to day, you need only a few commands.
+
+59
+00:04:46,789 --> 00:04:56,723
+Hermes model to switch providers, hermes gateway to start messaging, hermes setup for
+the full wizard, hermes update to upgrade, and hermes doctor to diagnose problems.
+
+60
+00:04:56,723 --> 00:04:58,257
+Want to skip collecting five A P I keys?
+
+61
+00:04:58,257 --> 00:05:00,681
+Run hermes setup with the portal flag.
+
+62
+00:05:00,681 --> 00:05:11,000
+One Nous Portal subscription gives you three hundred plus models, plus web
+search, image generation, speech, and a cloud browser through the Tool Gateway.
+
+63
+00:05:11,000 --> 00:05:14,724
+Full docs are on the Hermes site, and the
+community lives on Discord.
+
+64
+00:05:14,724 --> 00:05:18,128
+Thank you for watching, and happy building
+with Hermes Agent.

@@ -1,0 +1,50 @@
+1
+00:00:00,700 --> 00:00:04,199
+Hermes lives where you do, and runs where
+you want.
+
+2
+00:00:04,199 --> 00:00:05,871
+First, where you talk.
+
+3
+00:00:05,871 --> 00:00:11,665
+One gateway process serves Telegram, Discord, Slack,
+WhatsApp, Signal, and the command line together.
+
+4
+00:00:11,665 --> 00:00:18,277
+It transcribes your voice memos, and your conversation
+continues seamlessly even if you switch apps.
+
+5
+00:00:18,277 --> 00:00:18,777
+Now, where it runs.
+
+6
+00:00:18,777 --> 00:00:21,369
+Hermes has seven terminal backends.
+
+7
+00:00:21,369 --> 00:00:29,876
+Local for your own machine, Docker and SSH for servers, Singularity
+for clusters, and Modal, Daytona, and Vercel Sandbox for the cloud.
+
+8
+00:00:29,876 --> 00:00:32,082
+The serverless options are special.
+
+9
+00:00:32,082 --> 00:00:38,874
+Your agent's environment hibernates when idle and wakes
+on demand, so it costs almost nothing between sessions.
+
+10
+00:00:38,874 --> 00:00:45,075
+That means one setup choice covers everything,
+from a five-dollar V P S to a full G P U cluster.
+
+11
+00:00:45,075 --> 00:00:47,836
+Chat from your phone, compute in the cloud.
+

@@ -1,0 +1,102 @@
+{
+ "batch": "B2",
+ "audio": "/home/user/hermes-agent/explainer_video/audio/batch_B2.mp3",
+ "audio_dur": 58.344,
+ "total": 59.844,
+ "head": 0.7,
+ "tail": 0.8,
+ "units": 13,
+ "segments": [
+  {
+   "cue": 1,
+   "slide": "S04",
+   "start": 0.7,
+   "end": 2.27,
+   "dur": 1.57
+  },
+  {
+   "cue": 2,
+   "slide": "S04",
+   "start": 2.27,
+   "end": 3.68,
+   "dur": 1.41
+  },
+  {
+   "cue": 3,
+   "slide": "S04",
+   "start": 3.68,
+   "end": 5.866,
+   "dur": 2.186
+  },
+  {
+   "cue": 4,
+   "slide": "S04",
+   "start": 5.866,
+   "end": 17.962,
+   "dur": 12.096
+  },
+  {
+   "cue": 5,
+   "slide": "S05",
+   "start": 17.962,
+   "end": 20.679,
+   "dur": 2.717
+  },
+  {
+   "cue": 6,
+   "slide": "S05",
+   "start": 20.679,
+   "end": 22.007,
+   "dur": 1.328
+  },
+  {
+   "cue": 7,
+   "slide": "S05",
+   "start": 22.007,
+   "end": 33.76,
+   "dur": 11.753
+  },
+  {
+   "cue": 8,
+   "slide": "S06",
+   "start": 33.76,
+   "end": 36.079,
+   "dur": 2.319
+  },
+  {
+   "cue": 9,
+   "slide": "S06",
+   "start": 36.079,
+   "end": 44.422,
+   "dur": 8.343
+  },
+  {
+   "cue": 10,
+   "slide": "S04",
+   "start": 44.422,
+   "end": 45.785,
+   "dur": 1.363
+  },
+  {
+   "cue": 11,
+   "slide": "S04",
+   "start": 45.785,
+   "end": 47.634,
+   "dur": 1.849
+  },
+  {
+   "cue": 12,
+   "slide": "S04",
+   "start": 47.634,
+   "end": 56.694,
+   "dur": 9.06
+  },
+  {
+   "cue": 13,
+   "slide": "S04",
+   "start": 56.694,
+   "end": 59.044,
+   "dur": 2.35
+  }
+ ]
+}

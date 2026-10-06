@@ -1,0 +1,27 @@
+{
+ "batch": "B3",
+ "title": "The closed learning loop",
+ "query": "closed learning loop memory nudges skill creation self-improve session search Honcho agentskills",
+ "evidence": [
+  {
+   "source": "FACTS.md",
+   "score": 0.2302,
+   "excerpt": "FACTS (curated from repo tree):\n- Messaging platforms: Telegram, Discord, Slack, WhatsApp, Signal, CLI/TUI, Email, Home Assistant.\n  Gateway directory gateway/platforms holds signal.py, bluebubbles.py, weixin.py, qqbot, webhook.py, api_server.py.\n- Terminal backends (7): local, Docker, SSH, Singularity, Modal, Daytona, Vercel Sandbox.\n  Serverless Daytona/Modal hibernate when idle, wake on demand, cost nearly nothing between sessions.\n- Tools: 40+ tools, toolset system, terminal backends doc reference.\n- Memory/learning: agent-curated memory with periodic nudges, autonomous skill creation afte"
+  },
+  {
+   "source": "README.md",
+   "score": 0.2122,
+   "excerpt": "**The self-improving AI agent built by [Nous Research](https://nousresearch.com).** It's the only agent with a built-in learning loop — it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions. Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle. It's not tied to your laptop — talk to it from Telegram while it works on a cloud VM."
+  },
+  {
+   "source": "README.md",
+   "score": 0.1912,
+   "excerpt": "<table>\n<tr><td><b>A real terminal interface</b></td><td>Full TUI with multiline editing, slash-command autocomplete, conversation history, interrupt-and-redirect, and streaming tool output.</td></tr>\n<tr><td><b>Lives where you do</b></td><td>Telegram, Discord, Slack, WhatsApp, Signal, and CLI — all from a single gateway process. Voice memo transcription, cross-platform conversation continuity.</td></tr>\n<tr><td><b>A closed learning loop</b></td><td>Agent-curated memory with periodic nudges. Autonomous skill creation after complex tasks. Skills self-improve during use. FTS5 session search with"
+  },
+  {
+   "source": "CONTRIBUTING.md",
+   "score": 0.1592,
+   "excerpt": "If your skill is specialized, community-contributed, or niche, it's better suited for a **Skills Hub** — upload it to a skills registry and share it in the [Nous Research Discord](https://discord.gg/NousResearch). Users can install it with `hermes skills install`.\n\n---\n\n## Memory Providers: Ship as a Standalone Plugin\n\n**We are no longer accepting new memory providers into this repo.** The set of built-in providers under `plugins/memory/` (honcho, mem0, supermemory, byterover, holographic, openviking, retaindb) is closed. If you want to add a new memory backend, publish it as a **standalone pl"
+  }
+ ]
+}

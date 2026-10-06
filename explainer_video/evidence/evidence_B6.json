@@ -1,0 +1,27 @@
+{
+ "batch": "B6",
+ "title": "Install + quickstart + closing",
+ "query": "install curl powershell hermes model gateway setup update doctor Nous Portal Tool Gateway docs discord",
+ "evidence": [
+  {
+   "source": "README.md",
+   "score": 0.4258,
+   "excerpt": "## Skip the API-key collection — Nous Portal\n\nHermes works with whatever provider you want — that's not changing. But if you'd rather not collect five separate API keys for the model, web search, image generation, TTS, and a cloud browser, **[Nous Portal](https://portal.nousresearch.com)** covers all of them under one subscription:\n\n- **300+ models** — pick any of them with `/model <name>`\n- **Tool Gateway** — web search (Firecrawl), image generation (FAL), text-to-speech (OpenAI), cloud browser (Browser Use), all routed through your sub. No extra accounts.\n\nOne command from a fresh install:\n\n"
+  },
+  {
+   "source": "README.md",
+   "score": 0.3853,
+   "excerpt": "```bash\nhermes              # Interactive CLI — start a conversation\nhermes model        # Choose your LLM provider and model\nhermes tools        # Configure which tools are enabled\nhermes config set   # Set individual config values\nhermes config get   # Print individual config values\nhermes gateway      # Start the messaging gateway (Telegram, Discord, etc.)\nhermes setup        # Run the full setup wizard (configures everything at once)\nhermes claw migrate # Migrate from OpenClaw (if coming from OpenClaw)\nhermes update       # Update to the latest version\nhermes doctor       # Diagnose any is"
+  },
+  {
+   "source": "README.md",
+   "score": 0.3436,
+   "excerpt": "That logs you in via OAuth, sets Nous as your provider, and turns on the Tool Gateway. Check what's wired up any time with `hermes portal info`. Full details on the [Tool Gateway docs page](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway).\n\nYou can still bring your own keys per-tool whenever you want — the gateway is per-backend, not all-or-nothing.\n\n---\n\n## CLI vs Messaging Quick Reference\n\nHermes has two entry points: start the terminal UI with `hermes`, or run the gateway and talk to it from Telegram, Discord, Slack, WhatsApp, Signal, or Email. Once you're in a c"
+  },
+  {
+   "source": "README.md",
+   "score": 0.3023,
+   "excerpt": "We welcome contributions! See the [Contributing Guide](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing) for development setup, code style, and PR process.\n\nQuick start for contributors — use the standard installer, then work from the\nfull git checkout it creates at `$HERMES_HOME/hermes-agent` (usually\n`~/.hermes/hermes-agent`). This matches the layout used by `hermes update`, the\nmanaged venv, lazy dependencies, gateway, and docs tooling.\n\n```bash\ncurl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash\ncd \"${HERMES_HOME:-$HOME/.hermes}/hermes-agent\"\nuv pip in"
+  }
+ ]
+}

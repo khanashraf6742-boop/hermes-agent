@@ -1,0 +1,27 @@
+{
+ "batch": "B1",
+ "title": "What is Hermes Agent?",
+ "query": "self-improving AI agent Nous Research learning loop skills memory model switch providers",
+ "evidence": [
+  {
+   "source": "README.md",
+   "score": 0.5284,
+   "excerpt": "**The self-improving AI agent built by [Nous Research](https://nousresearch.com).** It's the only agent with a built-in learning loop — it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions. Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle. It's not tied to your laptop — talk to it from Telegram while it works on a cloud VM."
+  },
+  {
+   "source": "README.md",
+   "score": 0.2819,
+   "excerpt": "Use any model you want — [Nous Portal](https://portal.nousresearch.com), OpenRouter, OpenAI, your own endpoint, and [many others](https://hermes-agent.nousresearch.com/docs/integrations/providers). Switch with `hermes model` — no code changes, no lock-in."
+  },
+  {
+   "source": "README.md",
+   "score": 0.2009,
+   "excerpt": "## Skip the API-key collection — Nous Portal\n\nHermes works with whatever provider you want — that's not changing. But if you'd rather not collect five separate API keys for the model, web search, image generation, TTS, and a cloud browser, **[Nous Portal](https://portal.nousresearch.com)** covers all of them under one subscription:\n\n- **300+ models** — pick any of them with `/model <name>`\n- **Tool Gateway** — web search (Firecrawl), image generation (FAL), text-to-speech (OpenAI), cloud browser (Browser Use), all routed through your sub. No extra accounts.\n\nOne command from a fresh install:\n\n"
+  },
+  {
+   "source": "AGENTS.md",
+   "score": 0.1814,
+   "excerpt": "Hermes is a personal AI agent that runs the same agent core across a CLI, a messaging\ngateway (Telegram, Discord, Slack, ~20 platforms), a TUI, and an Electron desktop app. It\nlearns across sessions (memory + skills), delegates to subagents, runs scheduled jobs, and\ndrives a real terminal and browser. It is extended primarily through **plugins and skills**,\nnot by growing the core.\n\nTwo invariants shape almost every design decision and are the lens for reviewing any change:"
+  }
+ ]
+}

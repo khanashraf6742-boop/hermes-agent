@@ -1,0 +1,42 @@
+1
+00:00:00,700 --> 00:00:09,629
+On Linux, macOS, W S L two, or Termux, you run one install command from the
+Hermes docs site, then reload your shell and type hermes to start chatting.
+
+2
+00:00:09,629 --> 00:00:16,665
+On Windows, there is a native PowerShell installer that
+bundles everything, including Python, Node, and a portable Git.
+
+3
+00:00:16,665 --> 00:00:19,089
+Day to day, you need only a few commands.
+
+4
+00:00:19,089 --> 00:00:29,023
+Hermes model to switch providers, hermes gateway to start messaging, hermes setup for
+the full wizard, hermes update to upgrade, and hermes doctor to diagnose problems.
+
+5
+00:00:29,023 --> 00:00:30,557
+Want to skip collecting five A P I keys?
+
+6
+00:00:30,557 --> 00:00:32,981
+Run hermes setup with the portal flag.
+
+7
+00:00:32,981 --> 00:00:43,300
+One Nous Portal subscription gives you three hundred plus models, plus web
+search, image generation, speech, and a cloud browser through the Tool Gateway.
+
+8
+00:00:43,300 --> 00:00:47,024
+Full docs are on the Hermes site, and the
+community lives on Discord.
+
+9
+00:00:47,024 --> 00:00:50,428
+Thank you for watching, and happy building
+with Hermes Agent.
+

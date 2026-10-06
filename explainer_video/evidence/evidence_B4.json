@@ -1,0 +1,27 @@
+{
+ "batch": "B4",
+ "title": "Lives anywhere, runs anywhere",
+ "query": "messaging Telegram Discord Slack WhatsApp Signal gateway voice terminal backends Docker SSH Modal Daytona serverless",
+ "evidence": [
+  {
+   "source": "FACTS.md",
+   "score": 0.4493,
+   "excerpt": "FACTS (curated from repo tree):\n- Messaging platforms: Telegram, Discord, Slack, WhatsApp, Signal, CLI/TUI, Email, Home Assistant.\n  Gateway directory gateway/platforms holds signal.py, bluebubbles.py, weixin.py, qqbot, webhook.py, api_server.py.\n- Terminal backends (7): local, Docker, SSH, Singularity, Modal, Daytona, Vercel Sandbox.\n  Serverless Daytona/Modal hibernate when idle, wake on demand, cost nearly nothing between sessions.\n- Tools: 40+ tools, toolset system, terminal backends doc reference.\n- Memory/learning: agent-curated memory with periodic nudges, autonomous skill creation afte"
+  },
+  {
+   "source": "README.md",
+   "score": 0.238,
+   "excerpt": "That logs you in via OAuth, sets Nous as your provider, and turns on the Tool Gateway. Check what's wired up any time with `hermes portal info`. Full details on the [Tool Gateway docs page](https://hermes-agent.nousresearch.com/docs/user-guide/features/tool-gateway).\n\nYou can still bring your own keys per-tool whenever you want — the gateway is per-backend, not all-or-nothing.\n\n---\n\n## CLI vs Messaging Quick Reference\n\nHermes has two entry points: start the terminal UI with `hermes`, or run the gateway and talk to it from Telegram, Discord, Slack, WhatsApp, Signal, or Email. Once you're in a c"
+  },
+  {
+   "source": "README.md",
+   "score": 0.1848,
+   "excerpt": "**The self-improving AI agent built by [Nous Research](https://nousresearch.com).** It's the only agent with a built-in learning loop — it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions. Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle. It's not tied to your laptop — talk to it from Telegram while it works on a cloud VM."
+  },
+  {
+   "source": "AGENTS.md",
+   "score": 0.175,
+   "excerpt": "Hermes is a personal AI agent that runs the same agent core across a CLI, a messaging\ngateway (Telegram, Discord, Slack, ~20 platforms), a TUI, and an Electron desktop app. It\nlearns across sessions (memory + skills), delegates to subagents, runs scheduled jobs, and\ndrives a real terminal and browser. It is extended primarily through **plugins and skills**,\nnot by growing the core.\n\nTwo invariants shape almost every design decision and are the lens for reviewing any change:"
+  }
+ ]
+}

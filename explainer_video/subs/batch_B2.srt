@@ -1,0 +1,56 @@
+1
+00:00:00,700 --> 00:00:02,270
+Let us open the hood.
+
+2
+00:00:02,270 --> 00:00:03,680
+Hermes has three layers.
+
+3
+00:00:03,680 --> 00:00:05,866
+Layer one is the interface layer.
+
+4
+00:00:05,866 --> 00:00:17,962
+You either type in a full terminal interface, with multi-line editing, slash commands, history,
+and streaming tool output, or you message it from chat apps through a single gateway process.
+
+5
+00:00:17,962 --> 00:00:20,679
+Layer two is the agent runtime.
+
+6
+00:00:20,679 --> 00:00:22,007
+This is the brain.
+
+7
+00:00:22,007 --> 00:00:33,760
+It runs the conversation loop, calls more than forty tools, delegates work to isolated
+sub-agents, compresses old context so long sessions never break, and tracks usage and cost.
+
+8
+00:00:33,760 --> 00:00:36,079
+Layer three is the state layer.
+
+9
+00:00:36,079 --> 00:00:44,422
+Every session, message, and memory is stored in a local database with
+full-text search, so the agent can recall anything across sessions.
+
+10
+00:00:44,422 --> 00:00:45,785
+Follow one message.
+
+11
+00:00:45,785 --> 00:00:47,634
+You send a text on Telegram.
+
+12
+00:00:47,634 --> 00:00:56,694
+The gateway routes it to your session, the runtime thinks, calls
+tools, and replies, and the state layer saves everything for next time.
+
+13
+00:00:56,694 --> 00:00:59,044
+One brain, many doors, total memory.
+

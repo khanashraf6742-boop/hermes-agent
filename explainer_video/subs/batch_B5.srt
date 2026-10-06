@@ -1,0 +1,49 @@
+1
+00:00:00,700 --> 00:00:02,478
+Now the power features.
+
+2
+00:00:02,478 --> 00:00:05,350
+Delegation, automation, and research.
+
+3
+00:00:05,350 --> 00:00:05,850
+Delegation first.
+
+4
+00:00:05,850 --> 00:00:12,120
+Hermes can spawn isolated sub-agents for parallel
+workstreams, so three tasks finish in the time of one.
+
+5
+00:00:12,120 --> 00:00:22,152
+It can also write Python scripts that call its own tools through R P C, collapsing
+long multi-step pipelines into a single step that costs almost zero context.
+
+6
+00:00:22,152 --> 00:00:23,569
+Automation next.
+
+7
+00:00:23,569 --> 00:00:34,161
+A built-in cron scheduler takes plain-English schedules, like a daily report, a nightly
+backup, or a weekly audit, and delivers the result to any platform, fully unattended.
+
+8
+00:00:34,161 --> 00:00:35,546
+Finally, research.
+
+9
+00:00:35,546 --> 00:00:44,586
+Hermes supports batch trajectory generation and trajectory compression,
+producing training data for the next generation of tool-calling models.
+
+10
+00:00:44,586 --> 00:00:48,834
+Parallel workers, scheduled habits, and a
+data flywheel for researchers.
+
+11
+00:00:48,834 --> 00:00:50,356
+Let us get you installed.
+

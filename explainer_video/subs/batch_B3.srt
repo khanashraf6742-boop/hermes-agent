@@ -1,0 +1,59 @@
+1
+00:00:00,700 --> 00:00:06,533
+This is the heart of Hermes, the closed
+learning loop, and it has five moving parts.
+
+2
+00:00:06,533 --> 00:00:09,217
+Part one, agent-curated memory with periodic
+nudges.
+
+3
+00:00:09,217 --> 00:00:16,548
+The agent itself decides what is worth remembering, and the
+system nudges it to persist knowledge before it is lost.
+
+4
+00:00:16,548 --> 00:00:19,430
+Part two, autonomous skill creation.
+
+5
+00:00:19,430 --> 00:00:26,279
+After a complex task, Hermes writes a reusable skill from what
+it just learned, so it never solves the same problem twice.
+
+6
+00:00:26,279 --> 00:00:29,716
+Part three, skills that self-improve during
+use.
+
+7
+00:00:29,716 --> 00:00:32,669
+Every time a skill runs, the agent refines
+it.
+
+8
+00:00:32,669 --> 00:00:35,627
+Part four, session search with
+summarisation.
+
+9
+00:00:35,627 --> 00:00:41,064
+Full-text search finds old conversations, and the
+model summarises them for cross-session recall.
+
+10
+00:00:41,064 --> 00:00:50,337
+Part five, a deepening model of you, powered by Honcho, an open-source
+user-modelling system, plus compatibility with the open agentskills dot io standard.
+
+11
+00:00:50,337 --> 00:00:53,933
+Memory writes, skills learn, recall
+compounds.
+
+12
+00:00:53,933 --> 00:00:57,124
+That is why Hermes gets smarter the longer
+you use it.
+

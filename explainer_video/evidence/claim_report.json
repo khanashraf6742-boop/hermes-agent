@@ -1,0 +1,102 @@
+[
+ {
+  "claim": "self-improving AI agent",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Nous Research",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "hermes model",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Telegram",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Discord",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "40+ tools",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "FTS5",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Honcho",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "agentskills.io",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "cron",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "subagents",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Daytona",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Modal",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "install.sh",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "hermes gateway",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Nous Portal",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "300+ models",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "Tool Gateway",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "hermes doctor",
+  "status": "GROUNDED",
+  "source": "README.md"
+ },
+ {
+  "claim": "MIT",
+  "status": "GROUNDED",
+  "source": "README.md"
+ }
+]

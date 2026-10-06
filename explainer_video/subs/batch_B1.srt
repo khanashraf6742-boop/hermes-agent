@@ -1,0 +1,38 @@
+1
+00:00:00,700 --> 00:00:04,872
+Namaste, and welcome to the complete Hermes
+Agent explainer.
+
+2
+00:00:04,872 --> 00:00:10,968
+Hermes Agent, built by Nous Research, is the
+self-improving A I agent with a built-in learning loop.
+
+3
+00:00:10,968 --> 00:00:21,804
+It creates skills from experience, improves them while you work, reminds itself to save what
+matters, searches its own past conversations, and builds a deeper model of you in every session.
+
+4
+00:00:21,804 --> 00:00:23,467
+Here is the big picture.
+
+5
+00:00:23,467 --> 00:00:31,278
+You can talk to it from the terminal, or from Telegram, Discord,
+Slack, WhatsApp, and Signal, while it actually runs on a cloud machine.
+
+6
+00:00:31,278 --> 00:00:38,768
+It works with almost any model you choose, from Nous Portal to
+OpenRouter and OpenAI, and you can switch models with one command.
+
+7
+00:00:38,768 --> 00:00:48,222
+In this video, we will unpack the architecture, the learning loop, the platforms, the
+automations, and the two-minute quick start, step by step, with tables and diagrams.
+
+8
+00:00:48,222 --> 00:00:49,276
+Let us begin.
+

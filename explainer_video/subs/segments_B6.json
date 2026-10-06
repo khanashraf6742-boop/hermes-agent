@@ -1,0 +1,74 @@
+{
+ "batch": "B6",
+ "audio": "/home/user/hermes-agent/explainer_video/audio/batch_B6.mp3",
+ "audio_dur": 49.728,
+ "total": 51.228,
+ "head": 0.7,
+ "tail": 0.8,
+ "units": 9,
+ "segments": [
+  {
+   "cue": 1,
+   "slide": "S13",
+   "start": 0.7,
+   "end": 9.629,
+   "dur": 8.929
+  },
+  {
+   "cue": 2,
+   "slide": "S13",
+   "start": 9.629,
+   "end": 16.665,
+   "dur": 7.036
+  },
+  {
+   "cue": 3,
+   "slide": "S13",
+   "start": 16.665,
+   "end": 19.089,
+   "dur": 2.424
+  },
+  {
+   "cue": 4,
+   "slide": "S14",
+   "start": 19.089,
+   "end": 29.023,
+   "dur": 9.934
+  },
+  {
+   "cue": 5,
+   "slide": "S14",
+   "start": 29.023,
+   "end": 30.557,
+   "dur": 1.534
+  },
+  {
+   "cue": 6,
+   "slide": "S14",
+   "start": 30.557,
+   "end": 32.981,
+   "dur": 2.424
+  },
+  {
+   "cue": 7,
+   "slide": "S15",
+   "start": 32.981,
+   "end": 43.3,
+   "dur": 10.319
+  },
+  {
+   "cue": 8,
+   "slide": "S15",
+   "start": 43.3,
+   "end": 47.024,
+   "dur": 3.724
+  },
+  {
+   "cue": 9,
+   "slide": "S15",
+   "start": 47.024,
+   "end": 50.428,
+   "dur": 3.404
+  }
+ ]
+}
